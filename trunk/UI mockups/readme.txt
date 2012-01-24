@@ -1,1 +1,1 @@
-download Pencil tool from http://pencil.evolus.vn/en-US/Downloads/Application.aspx location to open the pencil compatible (.ep) file.
+download Pencil tool from http://pencil.evolus.vn/en-US/Downloads/Application.aspx location to open the pencil compatible (.ep) fi
