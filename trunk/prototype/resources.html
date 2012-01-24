@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Content Management System</title>
+
+<script src="js/foundation.js"></script>
+<script src="js/app.js"></script>	
+
+<link rel="stylesheet" href="css/foundation.css" type="text/css" />
+<link rel="stylesheet" href="css/app.css" type="text/css" />
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+  populateProjects();
+});
+
+function populateProjects()
+{
+	var resources = [{name:"F1", description:"File 1", owner: "Srikanth" , date:"24/Jan/2012" }, {name:"F2", description:"File 2", owner: "Ramu", date:"24/Jan/2012" }];
+	var rows = "";
+	for(i in resources)
+	{
+		rows +="<tr>";
+		rows += genCol(resources[i].name);
+		rows += genCol(resources[i].owner);
+		rows += genCol(resources[i].description);
+		rows += genCol(resources[i].date);
+		rows += "</tr>";
+	}
+	$("tbody#resourceBody").html(rows);
+}
+
+function genCol(colVal)
+{
+	var col = "<td>"+ colVal +"</td>";
+	return col;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<dl class="nice contained tabs">
+  <dd><a href="#nice1" class="active">All Resources</a></dd>
+  <dd><a href="#nice2">MyResources</a></dd>
+</dl>
+
+<ul class="nice tabs-content contained">
+  <li class="active" id="nice1Tab">  
+	<!-- Table -->
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Owner</th>
+				<th>Description</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+		<tbody id = "resourceBody">
+		</tbody>
+	</table>	
+  </li>
+  <li id="nice2Tab">This is nice tab 2's content. Now you see it!</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Content Management System</title>
+
+<script src="js/foundation.js"></script>
+<script src="js/app.js"></script>	
+
+<link rel="stylesheet" href="css/foundation.css" type="text/css" />
+<link rel="stylesheet" href="css/app.css" type="text/css" />
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+  populateProjects();
+});
+
+function populateProjects()
+{
+	var projects = [{name:"P1", description:"Project 1", owner: "Srikanth" }, {name:"P2", description:"Project 2", owner: "Ramu" }];
+	for(i in projects)
+	{
+		$("dd#projectHeader").after("<dd><a  href='#'>"+ projects[i].name +"</a></dd>");
+	}
+}
+
+</script>
+
+</head>
+
+<body>
+
+<dl class="nice tabs vertical hide-on-phones">
+	<dd id="projectHeader"><a class="active" href="#">Dashboard</a></dd>
+</dl>
+
+</body>
+</html>

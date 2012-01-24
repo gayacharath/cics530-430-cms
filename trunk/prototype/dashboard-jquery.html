@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Content Management System</title>
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.mobile-1.0.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+  populateProjects();
+});
+
+function populateProjects()
+{
+	var projects = [{name:"P1", description:"Project 1", owner: "Srikanth" }, {name:"P2", description:"Project 2", owner: "Ramu" }];
+	for(i in projects)
+	{
+		$("li#projectHeader").after("<li><a href='projects[i].name'>" + projects[i].name + "</a></li>");
+		$("#projectList").listview("refresh");
+	}
+}
+
+</script>
+
+</head>
+
+<body>
+<div data-role="page">
+<div data-role="header"> <h1>Dashboard</h1> </div><!-- /header -->
+<div data-role="content">
+<div  class="content-secondary">
+	<ul id="projectList" data-role="listview" data-theme="c" data-dividertheme="b" data-inset="true">
+		<li id="projectHeader" data-role="list-divider">Components</li>
+	</ul> 
+</div>
+</div>
+
+<div data-role="footer"> <h4>Footer content</h4> </div><!-- /footer -->
+</div>
+
+</body>
+
+</html>
