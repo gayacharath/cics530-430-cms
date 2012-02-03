@@ -18,4 +18,6 @@ describe 'the log in process' do
   
   it 'informs the user if thier log in credentials are incorrect'
   
+  it 'allows us to edit a file online'
+  
 end
