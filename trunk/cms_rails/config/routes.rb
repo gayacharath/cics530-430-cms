@@ -25,6 +25,8 @@ CmsRails::Application.routes.draw do
   #     end
   #   end
 
+  match 'login' => 'sessions#new'#, :as => :login
+
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales

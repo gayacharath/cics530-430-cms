@@ -6,18 +6,13 @@ describe 'the log in process' do
     # this is set up code and it will run
     # one time before each of the specs below
     @the_truth  = true
-    @nil_var    = nil
+    @nil_var    = "not nil"
   end
   
-  it 'passes a test that will always pass' do
-    @the_truth.should be true
-  end
-  
-  it 'fails a test that should always fail' do
-    @nil_var.should_not be_nil
-  end
-  
-  it 'has a link to the sign up page'
+  it 'has a link to the sign up page' do
+    visit login_url
+    page.should have_content "sign up"
+  end 
   
   it 'redirects a user to thier dashboard after login'
   
