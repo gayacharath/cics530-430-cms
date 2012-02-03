@@ -4,7 +4,7 @@ describe "admin use cases" do
 
   context 'managing projects' do
     
-    it 'can creat projects'
+    it 'can create empty project'
     
     it 'can delete any project'
     
@@ -19,7 +19,7 @@ describe "admin use cases" do
     
     it 'can delete any announcement'
     
-    it 'can hide / show announcements on the front page'
+    it 'can hide or show announcements on the front page'
   
   end
   
@@ -35,6 +35,10 @@ describe "admin use cases" do
     it 'can edit users attributes'
     
     it 'can manage user priveleges'
+    
+    it 'can remove user'
+    
+    
   end
 
 end
