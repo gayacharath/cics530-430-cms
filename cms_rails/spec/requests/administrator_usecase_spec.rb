@@ -34,7 +34,7 @@ describe "admin use cases" do
     
     it 'can edit users attributes'
     
-    it 'can manage user priveleges'
+    it 'can manage user permissions'
     
     it 'can remove user'
     
