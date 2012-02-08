@@ -47,3 +47,6 @@ group :test do
 #  gem 'simplecov', '>= 0.4.0', :require => false
 end
 
+# Gemfiles added by Ben
+gem 'execjs'
+gem 'therubyracer'
