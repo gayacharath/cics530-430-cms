@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120215003832) do
+ActiveRecord::Schema.define(:version => 20120215013021) do
 
   create_table "announcements", :force => true do |t|
     t.integer  "user_id"
@@ -26,10 +26,15 @@ ActiveRecord::Schema.define(:version => 20120215003832) do
     t.datetime "started_at"
     t.datetime "ending_at"
     t.string   "name"
-    t.text     "destription"
+    t.text     "description"
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "projects_users", :force => true do |t|
+    t.integer "user_id"
+    t.integer "project_id"
   end
 
   create_table "resources", :force => true do |t|
@@ -52,11 +57,6 @@ ActiveRecord::Schema.define(:version => 20120215003832) do
     t.string   "pass_hash"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "users_projects", :force => true do |t|
-    t.integer "user_id"
-    t.integer "project_id"
   end
 
 end

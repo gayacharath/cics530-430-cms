@@ -5,3 +5,31 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+10.times do
+		u  = User.create(	
+				:full_name 	=> Faker::Name.name,
+				:pref_name 	=> Faker::Name.first_name,
+				:email		=> Faker::Internet.email,
+				:admin		=> false
+			)
+
+		p = Project.create(
+				:name 		=> Faker::Company.name,
+				:description=> Faker::Company.bs,
+				:owner		=> u,
+				:started_at	=> Time.now,
+				:ending_at	=> 1.year.from_now
+			)
+	
+		5.times do
+			temp  = User.create(	
+				:full_name 	=> Faker::Name.name,
+				:pref_name 	=> Faker::Name.first_name,
+				:email		=> Faker::Internet.email,
+				:admin		=> false
+			)
+			p.users << temp
+		end
+end
