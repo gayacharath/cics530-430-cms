@@ -18,10 +18,7 @@
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
-
-
-    
-    <!-- Le javascript
+       <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery-1.7.1.js"></script>
@@ -38,6 +35,24 @@
 
   <body>
 
+  <header class="jumbotron subhead" id="overview">
+  <h1>Base CSS</h1>
+  <p class="lead">On top of the scaffolding, basic HTML elements are styled and enhanced with extensible classes to provide a fresh, consistent look and feel.</p>
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li><a href="#typography">Typography</a></li>
+
+      <li><a href="#code">Code</a></li>
+      <li><a href="#tables">Tables</a></li>
+      <li><a href="#forms">Forms</a></li>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#icons">Icons by Glyphicons</a></li>
+    </ul>
+
+  </div>
+</header>
+
+  
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -58,14 +73,50 @@
       </div>
     </div>
 
+	 
     <div class="container">
-
       <h1>Bootstrap starter template</h1>
-      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+    	<p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+		
+		<div class="subnav">
+          <ul class="nav nav-pills">
+            <li class="active"><a href="#grid-system">Grid system</a></li>
+            <li><a href="#layouts">Layouts</a></li>
+            <li><a href="#responsive">Responsive design</a></li>
+          </ul>
+    </div>
+	
+	<div class="row show-grid">
+		<div class="span4" data-original-title="">4</div>
+		<div class="span4" data-original-title="">4</div>
+		<div class="span4">4</div>
+	</div>
 
     </div> <!-- /container -->
-
-
+	
+	<div class="container">
+<table class="table table-striped table-bordered table-condensed">
+        <tbody>
+          <tr>
+            <td>
+				<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="typ">For</span><span class="pln"> example</span><span class="pun">,</span><span class="pln"> </span><span class="str">&lt;code&gt;</span><span class="pln">section</span><span class="pun">&lt;/</span><span class="pln">code</span><span class="pun">&gt;</span><span class="pln"> should be wrapped </span><span class="kwd">as</span><span class="pln"> </span><span class="kwd">inline</span><span class="pun">.</span></li></ol></pre>
+			</td>
+          </tr>
+		  <tr>
+            <td>
+				<p>Add <code>cite</code> attribute for source URL</p>
+				Use <code>.pull-left</code> and <code>.pull-right</code> classes for floated options
+			</td>
+          </tr>
+		  <tr>
+            <td>
+				<p>Add <code>cite</code> attribute for source URL</p>
+				Use <code>.pull-left</code> and <code>.pull-right</code> classes for floated options
+			</td>
+          </tr>
+        </tbody>
+      </table>
+</div> <!-- /container -->
 
   </body>
 </html>
