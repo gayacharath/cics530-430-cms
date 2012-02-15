@@ -35,6 +35,8 @@ gem 'letter_opener', :group => :development
 
 gem "rspec-rails", :group => [:test, :development]
 
+gem 'faker'
+
 group :test do
   gem 'turn', :require => false # Pretty printed test output
   gem "mocha"
