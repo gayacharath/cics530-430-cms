@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Project Box, from Twitter</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      .login-form {
+          float: right;
+          display: block;
+          padding: 8px 20px 12px;
+          margin-right: -20px;
+          font-size: 12px;
+          color: #ffffff;
+      }
+      .login-form-textarea {
+          font-size: 11px;
+          border: 1px solid #666666;
+          width: 120px;
+          height: 12px;
+      }
+      .login-form-button {
+          font-size: 12px;
+          border: 1px solid #666666;
+          height: 12px;
+      }
+    </style>
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+
+
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.7.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Project name</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+          <div class="login-form">
+            <form name="login" action="#" method="post">
+                Email: <input class="login-form-textarea" type="text" name="email" />
+                Password: <input class="login-form-textarea" type="password" name="pass" />
+                <input class="login-form-button" type="submit" value="Log In" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h1>Welcome to Project Box!</h1>
+      <p>Registration is easy and you can start creating projects right away!</p>
+      
+      <div class="register-form">
+        <form action="#" method="post" name="">
+            <label>First name:</label><input type="text" name="first_name" />
+            <label>Last name:</label><input type="text" name="last_name" />
+            <label>Date of birth:</label>
+                <select name="month">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                </select>
+                <select name="day">
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                </select>
+                <select name="year">
+                    <option value="1985">1985</option>
+                    <option value="1986">1986</option>
+                    <option value="1987">1987</option>
+                    <option value="1988">1988</option>
+                </select>
+            <label>Gender</label>
+                <select name="gender">
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Other</option>
+                </select>
+            <label></label><input type="submit" value="Register"/>
+        </form>
+      </div>
+
+    </div> <!-- /container -->
+
+
+
+  </body>
+</html>
