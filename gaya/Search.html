@@ -18,7 +18,7 @@
 	
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/date_input.css" type="text/css">
+	<link href="css/bootstrap-date.css" rel="stylesheet">
 
 
     
@@ -27,8 +27,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery-1.7.1.js"></script>
     <script src="js/bootstrap.js"></script>
-	<script src="js/jquery.date_input.js"></script>
-	<script type="text/javascript">$($.date_input.initialize);</script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	
 
 
     <!-- Le fav and touch icons -->
@@ -115,6 +115,18 @@
 				</select>
 				</div>
 				</div>
+			    
+				<div class="control-group">
+					<label class="control-label" for="input01">Modified date</label>
+					<div class="controls">
+					<div class="input">
+					  <div class="inline-inputs">
+						<input data-datepicker="datepicker" class="input-large" type="text"  />
+						<p class="help-block">Enter date from when you want the dicuments to be displayed</p>
+					  </div>
+					  </div>
+					</div>
+				</div>
 			
 				<div class="control-group">
 					<label class="control-label" for="input01">Filename</label>
@@ -123,16 +135,9 @@
 					<p class="help-block">Enter the project file name</p>
 					</div>
 				</div>
-				<div class="control-group">
-					<label class="control-label" for="input01">Modified date</label>
-					<div class="controls">
-					 <input type="text" name="date" class="date_input">
-					<!--<input type="text" class="input-xlarge" id="input01">-->
-					<p class="help-block">Enter date from when you want the dicuments to be displayed</p>
-					</div>
-				</div>
+
 				
-				<div class="control-group">
+			<div class="control-group">
             <label class="control-label" for="optionsCheckbox">File Type</label>
             <div class="controls">
 			<table><tr><td>
@@ -150,14 +155,13 @@
 				<input type="checkbox" id="optionsCheckbox" value="option4">png
 			</label></td></tr></table>
             </div>
-				
-                  
+				   
 				  <ul class="nav nav-pills">
 				  <li class="active"><a href="#">Search</a></li>
 				  </ul>
                 </div>
               </div>
-            </div>
+            </div> <!--accordion-group-->
 		
 
 <div class="span3">
