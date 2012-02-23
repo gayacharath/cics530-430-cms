@@ -58,5 +58,8 @@ describe Project do
       :description => @project.description, :owner_id => @project.owner_id)
       project2.should_not be_valid
     end
+  end
    
 end
+
+
