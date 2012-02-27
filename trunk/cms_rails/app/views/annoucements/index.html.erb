@@ -1,0 +1,21 @@
+<% title "Annoucements" %>
+
+<table>
+  <tr>
+    <th>Atopic</th>
+    <th>Aid</th>
+    <th>Date</th>
+  </tr>
+  <% for annoucement in @annoucements %>
+    <tr>
+      <td><%= annoucement.atopic %></td>
+      <td><%= annoucement.aid %></td>
+      <td><%= annoucement.date %></td>
+      <td><%= link_to "Show", annoucement %></td>
+      <td><%= link_to "Edit", edit_annoucement_path(annoucement) %></td>
+      <td><%= link_to "Destroy", annoucement, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Annoucement", new_annoucement_path %></p>

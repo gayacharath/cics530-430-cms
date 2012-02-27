@@ -1,0 +1,13 @@
+one:
+  rtype: 1
+  rdate: 2012-02-27 13:52:35
+  rname: MyString
+  rversion: 1
+  rdoc: MyString
+
+two:
+  rtype: 1
+  rdate: 2012-02-27 13:52:35
+  rname: MyString
+  rversion: 1
+  rdoc: MyString

@@ -1,0 +1,17 @@
+<% title "Staffs" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for staff in @staffs %>
+    <tr>
+      <td><%= staff.name %></td>
+      <td><%= link_to "Show", staff %></td>
+      <td><%= link_to "Edit", edit_staff_path(staff) %></td>
+      <td><%= link_to "Destroy", staff, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Staff", new_staff_path %></p>

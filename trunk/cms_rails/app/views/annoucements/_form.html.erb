@@ -1,0 +1,16 @@
+<%= form_for @annoucement do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :atopic %><br />
+    <%= f.text_field :atopic %>
+  </p>
+  <p>
+    <%= f.label :aid %><br />
+    <%= f.number_field :aid %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.time_select :date %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
