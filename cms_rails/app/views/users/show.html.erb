@@ -1,0 +1,28 @@
+<% title "User" %>
+
+<p>
+  <strong>Full Name:</strong>
+  <%= @user.full_name %>
+</p>
+<p>
+  <strong>Pref Name:</strong>
+  <%= @user.pref_name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Admin:</strong>
+  <%= @user.admin %>
+</p>
+<p>
+  <strong>Pass Hash:</strong>
+  <%= @user.pass_hash %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_user_path(@user) %> |
+  <%= link_to "Destroy", @user, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", users_path %>
+</p>

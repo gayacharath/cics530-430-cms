@@ -1,0 +1,25 @@
+<% title "Users" %>
+
+<table>
+  <tr>
+    <th>Full Name</th>
+    <th>Pref Name</th>
+    <th>Email</th>
+    <th>Admin</th>
+    <th>Pass Hash</th>
+  </tr>
+  <% for user in @users %>
+    <tr>
+      <td><%= user.full_name %></td>
+      <td><%= user.pref_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.admin %></td>
+      <td><%= user.pass_hash %></td>
+      <td><%= link_to "Show", user %></td>
+      <td><%= link_to "Edit", edit_user_path(user) %></td>
+      <td><%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New User", new_user_path %></p>

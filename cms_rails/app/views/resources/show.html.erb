@@ -1,0 +1,28 @@
+<% title "Resource" %>
+
+<p>
+  <strong>Rtype:</strong>
+  <%= @resource.rtype %>
+</p>
+<p>
+  <strong>Rdate:</strong>
+  <%= @resource.rdate %>
+</p>
+<p>
+  <strong>Rname:</strong>
+  <%= @resource.rname %>
+</p>
+<p>
+  <strong>Rversion:</strong>
+  <%= @resource.rversion %>
+</p>
+<p>
+  <strong>Rdoc:</strong>
+  <%= @resource.rdoc %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_resource_path(@resource) %> |
+  <%= link_to "Destroy", @resource, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", resources_path %>
+</p>

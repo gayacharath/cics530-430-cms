@@ -1,0 +1,20 @@
+<% title "Annoucement" %>
+
+<p>
+  <strong>Atopic:</strong>
+  <%= @annoucement.atopic %>
+</p>
+<p>
+  <strong>Aid:</strong>
+  <%= @annoucement.aid %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= @annoucement.date %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_annoucement_path(@annoucement) %> |
+  <%= link_to "Destroy", @annoucement, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", annoucements_path %>
+</p>

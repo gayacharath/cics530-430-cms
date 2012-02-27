@@ -1,0 +1,12 @@
+<% title "Staff" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @staff.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_staff_path(@staff) %> |
+  <%= link_to "Destroy", @staff, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", staffs_path %>
+</p>
