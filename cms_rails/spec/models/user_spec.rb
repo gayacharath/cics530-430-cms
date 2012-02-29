@@ -13,6 +13,13 @@ describe User do
 
 		it 'it starts out valid' do
 			@user.should be_valid
+      @user.save
+      @user.errors.each do |x|
+           x.each do |y|
+             puts y
+
+        end
+      end
 		end
 
 		it 'must have a email' do
@@ -60,14 +67,15 @@ describe User do
 			@user.admin?.should be_false
 		end
 
-		# stuff below here will be handled by Srikanth
 
 		it 'must have password that is at least 6 characters' do
 			@user.password = "dhs"
 			@user.should_not be_valid
 		end
 
-		it 'must confirm its password exactly' do
+		# stuff below here will be handled by Srikanth
+
+    it 'must confirm its password exactly' do
 			@user.password = "banana123"
 			@user.password_confirmation = "banana123"
 			@user.should_not be_valid
