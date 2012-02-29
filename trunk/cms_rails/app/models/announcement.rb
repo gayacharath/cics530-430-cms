@@ -3,9 +3,12 @@ class Announcement < ActiveRecord::Base
 
   validates_presence_of :topic, :content, :type
   
-  validates_length_of :topic, :minimum => 3, :maximum => 50, :allow_nil => false, :allow_blank => false
-  validates_length_of :content, :minimum => 5, :maximum => 100, :allow_nil => false, :allow_blank => false
+  validates_length_of :topic, :minimum => 4, :maximum => 256, :allow_nil => false, :allow_blank => false
+  validates_format_of :topic, :with => /^[\sa-zA-Z]{4,}$/i # need to analyze the validation
+
+  validates_length_of :content, :minimum => 32, :maximum => 256, :allow_nil => false, :allow_blank => false
+
   # validates_length_of :type, :allow_nil => false, :allow_blank => false
-  validates_format_of :topic, :with => /^[a-zA-Z]{5,}$/i # need to analyze the validation
-  # validate the allowed types like Warning, Info etc 
+
+  # validate the allowed types like Warning, Info etc, must define this in spec
 end
