@@ -9,7 +9,7 @@ describe 'the log in process' do
     @nil_var    = "not nil"
   end
   
-  it 'has a link to the sign up page', :focus do
+  it 'has a link to the sign up page' do
     visit login_url
     page.should have_content "sign up" 
   end 
