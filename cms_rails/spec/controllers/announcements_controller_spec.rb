@@ -32,7 +32,7 @@ describe AnnouncementsController do
   end
 
   it "edit action should render edit template" do
-    get :edit, :id => Annoucement.first
+    get :edit, :id => Announcement.first
     response.should render_template(:edit)
   end
 
