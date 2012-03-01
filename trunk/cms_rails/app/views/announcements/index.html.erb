@@ -2,15 +2,17 @@
 
 <table>
   <tr>
-    <th>Atopic</th>
-    <th>Aid</th>
-    <th>Date</th>
+    <th>Topic</th>
+    <th>Content</th>
+    <th>Created</th>
+    <th>Updated</th>
   </tr>
   <% for announcement in @announcements %>
     <tr>
       <td><%= announcement.topic %></td>
-      <td><%= announcement.aid %></td>
-      <td><%= announcement.date %></td>
+      <td><%= announcement.content %></td>
+      <td><%= announcement.created_at %></td>
+      <td><%= announcement.updated_at %></td>
       <td><%= link_to "Show", announcement %></td>
       <td><%= link_to "Edit", edit_announcement_path(announcement) %></td>
       <td><%= link_to "Destroy", announcement, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -1,18 +1,21 @@
 <% title "Announcement" %>
 
 <p>
-  <strong>Atopic:</strong>
+  <strong>Topic:</strong>
   <%= @announcement.topic %>
 </p>
 <p>
-  <strong>Aid:</strong>
-  <%= @announcement.aid %>
+  <strong>Content:</strong>
+  <%= @announcement.content %>
 </p>
 <p>
-  <strong>Date:</strong>
-  <%= @announcement.date %>
+  <strong>Created:</strong>
+  <%= @announcement.created_at %>
 </p>
-
+ <p>
+  <strong>Updated:</strong>
+  <%= @announcement.updated_at %>
+</p>
 <p>
   <%= link_to "Edit", edit_announcement_path(@announcement) %> |
   <%= link_to "Destroy", @announcement, :confirm => 'Are you sure?', :method => :delete %> |
