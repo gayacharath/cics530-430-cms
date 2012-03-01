@@ -1,20 +1,20 @@
-<% title "Annoucement" %>
+<% title "Announcement" %>
 
 <p>
   <strong>Atopic:</strong>
-  <%= @annoucement.atopic %>
+  <%= @announcement.topic %>
 </p>
 <p>
   <strong>Aid:</strong>
-  <%= @annoucement.aid %>
+  <%= @announcement.aid %>
 </p>
 <p>
   <strong>Date:</strong>
-  <%= @annoucement.date %>
+  <%= @announcement.date %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_annoucement_path(@annoucement) %> |
-  <%= link_to "Destroy", @annoucement, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", annoucements_path %>
+  <%= link_to "Edit", edit_announcement_path(@announcement) %> |
+  <%= link_to "Destroy", @announcement, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", announcements_path %>
 </p>
