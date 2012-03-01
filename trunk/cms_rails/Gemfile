@@ -55,6 +55,7 @@ end
 # Gemfiles added by Ben
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
+gem 'cancan'
 
 # added by Parvez
 gem "nifty-generators", :group => [:development]
