@@ -17,5 +17,56 @@ describe Resource do
     it 'starts out valid on creation' do
       @resource.should be_valid
     end
-
+    
+    it 'must have a user id' do
+      @resource.user_id = nil
+      @resource.should_not be_valid
+    end
+    
+    it 'must have a name' do
+      @resource.name = nil
+      @resource.should_not be_valid
+    end
+    
+    it 'must have a version number' do
+      @resource.version = nil
+      @resource.should_not be_valid
+    end
+    
+    it 'must have a description' do
+      @resource.description = nil
+      @resource.should_not be_valid
+    end
+    
+    it 'must have a location' do
+      @resource.location = nil
+      @resource.should_not be_valid
+    end
+    
+    it 'must have a mime type' do
+      @resource.type = nil
+      @resource.should_not be_valid
+    end
+    
+    it 'must have a creation date' do
+      @resource.created_at = nil
+      @resource.should_not be_valid
+    end
+    
+    it 'must have a modified date' do
+      @resource.modified_at = nil
+      @resource.should_not be_valid
+    end
+    
+    #further validation required
+    it 'must have a valid mime type' do
+      @resource.type = "bananas"
+      @resource.should_not be valid
+    end
+    
+    #further validation required
+    it 'must have a valid path' do
+      @resource.location = "bananas"
+      @resource.should_not be valid
+    end
 end
