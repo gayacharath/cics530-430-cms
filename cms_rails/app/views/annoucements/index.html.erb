@@ -1,4 +1,4 @@
-<% title "Annoucements" %>
+<% title "Announcements" %>
 
 <table>
   <tr>
@@ -6,16 +6,16 @@
     <th>Aid</th>
     <th>Date</th>
   </tr>
-  <% for annoucement in @annoucements %>
+  <% for announcement in @announcements %>
     <tr>
-      <td><%= annoucement.atopic %></td>
-      <td><%= annoucement.aid %></td>
-      <td><%= annoucement.date %></td>
-      <td><%= link_to "Show", annoucement %></td>
-      <td><%= link_to "Edit", edit_annoucement_path(annoucement) %></td>
-      <td><%= link_to "Destroy", annoucement, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= announcement.topic %></td>
+      <td><%= announcement.aid %></td>
+      <td><%= announcement.date %></td>
+      <td><%= link_to "Show", announcement %></td>
+      <td><%= link_to "Edit", edit_announcement_path(announcement) %></td>
+      <td><%= link_to "Destroy", announcement, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Annoucement", new_annoucement_path %></p>
+<p><%= link_to "New Announcement", new_announcement_path %></p>
