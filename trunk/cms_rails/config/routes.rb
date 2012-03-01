@@ -5,7 +5,7 @@ CmsRails::Application.routes.draw do
 
   resources :staffs
 
-  resources :annoucements
+  resources :announcements
 
   resources :projects
 

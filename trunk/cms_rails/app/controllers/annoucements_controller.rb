@@ -1,41 +1,41 @@
-class AnnoucementsController < ApplicationController
+class AnnouncementsController < ApplicationController
   def index
-    @annoucements = Annoucement.all
+    @announcements = Announcement.all
   end
 
   def show
-    @annoucement = Annoucement.find(params[:id])
+    @announcement = Announcement.find(params[:id])
   end
 
   def new
-    @annoucement = Annoucement.new
+    @announcement = Announcement.new
   end
 
   def create
-    @annoucement = Annoucement.new(params[:annoucement])
-    if @annoucement.save
-      redirect_to @annoucement, :notice => "Successfully created annoucement."
+    @announcement = Announcement.new(params[:announcement])
+    if @announcement.save
+      redirect_to @announcement, :notice => "Successfully created announcement."
     else
       render :action => 'new'
     end
   end
 
   def edit
-    @annoucement = Annoucement.find(params[:id])
+    @announcement = Announcement.find(params[:id])
   end
 
   def update
-    @annoucement = Annoucement.find(params[:id])
-    if @annoucement.update_attributes(params[:annoucement])
-      redirect_to @annoucement, :notice  => "Successfully updated annoucement."
+    @announcement = Announcement.find(params[:id])
+    if @announcement.update_attributes(params[:announcement])
+      redirect_to @announcement, :notice  => "Successfully updated announcement."
     else
       render :action => 'edit'
     end
   end
 
   def destroy
-    @annoucement = Annoucement.find(params[:id])
-    @annoucement.destroy
-    redirect_to annoucements_url, :notice => "Successfully destroyed annoucement."
+    @announcement = Announcement.find(params[:id])
+    @announcement.destroy
+    redirect_to announcements_url, :notice => "Successfully destroyed announcement."
   end
 end

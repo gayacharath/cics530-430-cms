@@ -83,7 +83,7 @@ describe Resource do
     end
     
     #further validation required: unique name for a given directory
-    it 'must have a valid (unique) file name for a given directory'
+    it 'must have a valid (unique) file name for a given directory' do
       #a file with the same name already exists in the same directory
       @resource.name = 'file.txt'
       @resource.should_not be_valid
