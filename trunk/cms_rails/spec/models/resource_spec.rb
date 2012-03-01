@@ -10,8 +10,8 @@ describe Resource do
       @resource.description="Test file for project"
       @resource.location="/path_to_location"
       @resource.type="text"
-      @resource.created_at="2012-02-15"
-      @resource.updated_at="2012-02-16"
+      @resource.created_at="2012-02-15 12:30:24"
+      @resource.updated_at="2012-02-16 12:31:50"
     end
 
     it 'starts out valid on creation' do
@@ -58,15 +58,34 @@ describe Resource do
       @resource.should_not be_valid
     end
     
-    #further validation required
+    #further validation required: research mime types
     it 'must have a valid mime type' do
       @resource.type = "bananas"
-      @resource.should_not be valid
+      @resource.should_not be_valid
     end
     
-    #further validation required
+    #further validation required file path string: regex?
     it 'must have a valid path' do
       @resource.location = "bananas"
-      @resource.should_not be valid
+      @resource.should_not be_valid
+    end
+    
+    #further validation required for date type
+    it 'must have a valid creation date' do
+      @resource.created_at = "01 March 2012 12.30pm"
+      @resource.should_not be_valid
+    end
+    
+    #further validation required for date types
+    it 'must have a valid modified date' do
+      @resource.created_at = "01 March 2012 12.31pm"
+      @resource.should_not be_valid
+    end
+    
+    #further validation required: unique name for a given directory
+    it 'must have a valid (unique) file name for a given directory'
+      #a file with the same name already exists in the same directory
+      @resource.name = 'file.txt'
+      @resource.should_not be_valid
     end
 end
