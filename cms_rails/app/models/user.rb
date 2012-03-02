@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
 	has_many :owned_projects, :foreign_key => :owner_id, :class_name => "Project"
 	has_and_belongs_to_many :projects
 
-  validates_associated :resources, :announcements, :owned_projects, :projects
+# validates associated is crashing app, commenting out for now - Matthew
+ #  validates_associated :resources, :announcements, :owned_projects, :projects
 
   #Authentication Code Begin
   attr_accessible :email, :full_name, :pref_name, :password, :password_confirmation
@@ -22,7 +23,7 @@ class User < ActiveRecord::Base
   validates_length_of :full_name, :minimum => 3, :allow_nil => false, :allow_blank => false
   validates_format_of :full_name, :with => /^[\sa-zA-Z]{3,}$/i
   
-    scope :administrator, where(:admin => 1)
+  scope :administrator, where(:admin => 1)
 
 
 end

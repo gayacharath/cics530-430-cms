@@ -1,28 +1,42 @@
-<% title "Resource" %>
+<h1>Resource</h1>
 
 <p>
-  <strong>Rtype:</strong>
-  <%= @resource.rtype %>
-</p>
-<p>
-  <strong>Rdate:</strong>
-  <%= @resource.rdate %>
-</p>
-<p>
-  <strong>Rname:</strong>
-  <%= @resource.rname %>
-</p>
-<p>
-  <strong>Rversion:</strong>
-  <%= @resource.rversion %>
-</p>
-<p>
-  <strong>Rdoc:</strong>
-  <%= @resource.rdoc %>
+  <b>User</b><br>
+  <%= @resource.user_id %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_resource_path(@resource) %> |
-  <%= link_to "Destroy", @resource, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", resources_path %>
+  <b>Project</b><br>
+  <%= @resource.project_id %>
 </p>
+
+<p>
+  <b>Name</b><br>
+  <%= @resource.name %>
+</p>
+
+<p>
+  <b>Version</b><br>
+  <%= @resource.version %>
+</p>
+
+<p>
+  <b>Description</b><br>
+  <%= @resource.description %>
+</p>
+
+<p>
+  <b>Location</b><br>
+  <%= @resource.location %>
+</p>
+
+<p>
+  <b>Mime</b><br>
+  <%= @resource.mime %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', resources_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_resource_path(@resource), :class => 'btn' %>
+  <%= link_to 'Delete', resource_path(@resource), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

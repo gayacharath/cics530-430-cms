@@ -1,28 +1,32 @@
-<% title "Project" %>
+<h1>Project</h1>
 
 <p>
-  <strong>Started At:</strong>
+  <b>Started at</b><br>
   <%= @project.started_at %>
 </p>
+
 <p>
-  <strong>Ending At:</strong>
+  <b>Ending at</b><br>
   <%= @project.ending_at %>
 </p>
+
 <p>
-  <strong>Name:</strong>
+  <b>Name</b><br>
   <%= @project.name %>
 </p>
+
 <p>
-  <strong>Description:</strong>
+  <b>Description</b><br>
   <%= @project.description %>
 </p>
+
 <p>
-  <strong>Owner:</strong>
+  <b>Owner</b><br>
   <%= @project.owner_id %>
 </p>
 
-<p>
-  <%= link_to "Edit", edit_project_path(@project) %> |
-  <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", projects_path %>
-</p>
+<div class="form-actions">
+  <%= link_to 'Back', projects_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_project_path(@project), :class => 'btn' %>
+  <%= link_to 'Delete', project_path(@project), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

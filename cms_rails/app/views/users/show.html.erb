@@ -1,28 +1,32 @@
-<% title "User" %>
+<h1>User</h1>
 
 <p>
-  <strong>Full Name:</strong>
+  <b>Full name</b><br>
   <%= @user.full_name %>
 </p>
+
 <p>
-  <strong>Pref Name:</strong>
+  <b>Pref name</b><br>
   <%= @user.pref_name %>
 </p>
+
 <p>
-  <strong>Email:</strong>
+  <b>Email</b><br>
   <%= @user.email %>
 </p>
+
 <p>
-  <strong>Admin:</strong>
+  <b>Admin</b><br>
   <%= @user.admin %>
 </p>
+
 <p>
-  <strong>Pass Hash:</strong>
+  <b>Password digest</b><br>
   <%= @user.password_digest %>
 </p>
 
-<p>
-  <%= link_to "Edit", edit_user_path(@user) %> |
-  <%= link_to "Destroy", @user, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", users_path %>
-</p>
+<div class="form-actions">
+  <%= link_to 'Back', users_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_user_path(@user), :class => 'btn' %>
+  <%= link_to 'Delete', user_path(@user), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

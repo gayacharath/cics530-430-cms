@@ -1,20 +1,38 @@
-<%= form_for @announcement do |f| %>
+<%= form_for @announcement, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Announcement</legend>
 
-  <p>
-    <%= f.label :topic %><br />
-    <%= f.text_field :topic %>
-  </p>
-  <p>
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </p>
-  <p>
-    <%= f.label :created_at %><br />
-    <%= f.datetime_select :created_at %>
-  </p>
-  <p>
-    <%= f.label :updated_at %><br />
-    <%= f.datetime_select :updated_at %>
-  </p>
-  <p><%= f.submit %></p>
+    <div class="control-group">
+      <%= f.label :user_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :user_id, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :topic, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :topic, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :content, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :content, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :kind, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :kind, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', announcements_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>

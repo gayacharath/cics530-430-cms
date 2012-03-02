@@ -1,21 +1,45 @@
-<%= form_for @user do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :full_name %><br />
-    <%= f.text_field :full_name %>
-  </p>
-  <p>
-    <%= f.label :pref_name %><br />
-    <%= f.text_field :pref_name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :admin %><br />
-    <%= f.check_box :admin %>
-  </p>
+<%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> User</legend>
 
-  <p><%= f.submit %></p>
+    <div class="control-group">
+      <%= f.label :full_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :full_name, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :pref_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :pref_name, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :email, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :email, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :admin, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :admin, :class => 'check_box' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :password_digest, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :password_digest, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', users_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>
