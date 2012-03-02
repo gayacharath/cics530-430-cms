@@ -6,6 +6,7 @@ gem 'rails', '3.1.1'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'activeadmin'
 
 gem "activeadmin"
 gem "meta_search", ">= 1.1.0.pre"
@@ -20,6 +21,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+gem 'meta_search', '>=1.1.0.pre'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
