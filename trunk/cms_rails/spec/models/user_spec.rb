@@ -5,8 +5,8 @@ describe User do
 	context "validations" do
 
 		before(:each) do
-			@user = Factory(:user)
-		end
+			@user = Factory.build(:user)
+    end
 
 		it 'it starts out valid' do
 			@user.should be_valid
@@ -73,8 +73,8 @@ describe User do
 		# stuff below here will be handled by Srikanth
 
     it 'must confirm its password exactly' do
-			@user.password = "banana123"
-			@user.password_confirmation = "banana123"
+			@user.password = "password"
+			@user.password_confirmation = "passw0rd"
 			@user.should_not be_valid
 		end
 
@@ -82,22 +82,24 @@ describe User do
 
 	context 'authentication system'  do
 		before(:each) do
-			@user = User.new 
-			@user.full_name = "Matthew Robertson"
-			@user.pref_name = "Matt"
-			@user.email = "matt@email.com"
-			@user.password = "1234banana"
-			@user.password_confirmation = "1234banana"
+			@user = Factory(:user)
 			@user.save
 		end
 
 		it 'should return a user if password is correct' do
-			@user.authenticate( "1234banana" ).should eq @user
+			@user.authenticate( "password" ).should eq @user
 		end
 
-		it 'should return nil if password is incorrect' do
-			@user.authenticate( "nothepassword" ).should be_nil
-		end
+		it 'should return FALSE if password is incorrect' do
+			@user.authenticate( "passw0rd" ).should be_false
+    end
+
+    it 'should create a password digest when saved' do
+      @user = Factory.build(:user)
+      #@user.password_digest.should be_nil
+      @user.save
+      @user.password_digest.should_not be_nil
+    end
 	end
   
 end
