@@ -10,5 +10,7 @@ class Project < ActiveRecord::Base
 	validates_length_of :name, :minimum => 3, :allow_nil => false, :allow_blank => false
   	validates_format_of :name, :with => /^[a-zA-Z]{3,}$/i
 	validates_uniqueness_of :name, :case_sensitive => false
+	
+
 
 end

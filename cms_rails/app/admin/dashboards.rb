@@ -1,5 +1,41 @@
 ActiveAdmin::Dashboards.build do
-
+	section "New users" do
+		table_for User.order("created_at desc").limit(3) do
+			column  "Full name", :full_name do |user|
+				link_to user.full_name, admin_user_path(user)
+			end
+			column  "Nick name", :pref_name
+			column  "Email", :email
+			column  "Is admin?", :admin
+		end
+		strong { link_to "View all users", admin_users_path }
+	end
+	
+	section "New Project" do
+			table_for Project.order("created_at desc").limit(3) do
+				column  "Project name", :name do |project|
+					link_to project.name, admin_project_path(project)
+				end
+				column "Start Date", :started_at
+				column "End Date", :ending_at
+				column "Owner ID", :owner_id
+				column "Created date", :created_at
+			end
+		strong { link_to "View all projects", admin_projects_path }
+	end
+			
+	section "New Announcement" do
+		table_for Announcement.order("created_at desc").limit(3) do
+			column  "Project name", :name do |announcement|
+				link_to announcement.name, admin_announcement_path(announcement)
+			end
+			column "Start Date", :started_at
+			column "End Date", :ending_at
+			column "Owner", :owner_id
+			column "Created date", :created_at
+		end
+		strong { link_to "View all projects", admin_announcements_path }
+	end
   # Define your dashboard sections here. Each block will be
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.
