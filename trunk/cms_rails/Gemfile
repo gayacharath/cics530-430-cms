@@ -62,3 +62,6 @@ gem 'cancan'
 
 # added by Parvez
 gem "nifty-generators", :group => [:development]
+
+# added for Authentication by Srikanth
+gem "bcrypt-ruby", :require => "bcrypt"

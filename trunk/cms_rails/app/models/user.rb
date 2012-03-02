@@ -6,8 +6,12 @@ class User < ActiveRecord::Base
 
   validates_associated :resources, :announcements, :owned_projects, :projects
 
-  attr_accessible :email, :full_name, :pref_name
-
+  #Authentication Code Begin
+  attr_accessible :email, :full_name, :pref_name, :password, :password_confirmation
+  has_secure_password
+  validates_presence_of :password, :on => :create
+  #Authentication Code End
+  
 	validates_presence_of :email, :full_name, :pref_name
   #validates_inclusion_of :admin, :in => [0, 1]
 

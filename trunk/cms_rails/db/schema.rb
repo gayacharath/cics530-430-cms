@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120229014531) do
+ActiveRecord::Schema.define(:version => 20120302022048) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(:version => 20120229014531) do
     t.string   "pref_name"
     t.string   "email"
     t.boolean  "admin"
-    t.string   "pass_hash"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
