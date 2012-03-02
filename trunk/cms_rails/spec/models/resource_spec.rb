@@ -69,7 +69,7 @@ describe Resource do
     
     #further validation required for date types
     it 'must have a valid modified date' do
-      @resource.created_at = "01 March 2012 12.31pm"
+      @resource.updated_at = "01 March 2012 12.31pm"
       @resource.should_not be_valid
     end
     
