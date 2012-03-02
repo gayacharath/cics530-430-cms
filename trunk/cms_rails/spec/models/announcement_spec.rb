@@ -4,10 +4,7 @@ describe Announcement do
 	context "validations" do
 
 		before(:each) do
-			@announcement = Announcement.new
-			@announcement.topic= "Server Status"
-			@announcement.content= "Schedule of inactivity for February"
-      @announcement.type= "Warning"
+			@announcement = Factory(:announcement)
     end
 
     it "starts out valid" do

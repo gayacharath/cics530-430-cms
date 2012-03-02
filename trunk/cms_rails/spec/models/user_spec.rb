@@ -5,10 +5,7 @@ describe User do
 	context "validations" do
 
 		before(:each) do
-			@user = User.new 
-			@user.full_name = "Matthew Robertson"
-			@user.pref_name = "Matt"
-			@user.email = "matt@email.com"
+			@user = Factory(:user)
 		end
 
 		it 'it starts out valid' do

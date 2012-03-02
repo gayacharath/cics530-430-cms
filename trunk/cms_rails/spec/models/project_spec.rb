@@ -5,12 +5,7 @@ describe Project do
   context "validations" do
 
     before(:each) do
-      @project = Project.new 
-      @project.started_at = "2012-02-15"
-      @project.ending_at = "2012-03-15"
-      @project.name = "CICS-530"
-      @project.description = "Term project for MSS students based on content management system"
-      @project.owner_id = 1
+      @project = Factory(:project)
     end
 
     it 'starts out valid project creation' do
