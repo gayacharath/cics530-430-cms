@@ -5,9 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
 User.delete_all
 Project.delete_all
+Announcement.delete_all
+Resource.delete_all
 
 10.times do
 	u  = User.create(	
@@ -31,14 +32,15 @@ Project.delete_all
 
 
 		5.times do
-			temp  = User.create(	
-				:full_name 	=> Faker::Name.name,
-				:pref_name 	=> Faker::Name.first_name,
-				:email		=> Faker::Internet.email,
-				:admin		=> false
-			)
+			temp  = User.create({	
+					:full_name 	=> Faker::Name.name,
+					:pref_name 	=> Faker::Name.first_name,
+					:email		=> Faker::Internet.email,
+					:admin		=> false
+				}, :without_protection => true)
+			
 			p.users << temp
-		end
+		end	
 	
 		a = Announcement.new
 		a.topic = Faker::Company.name

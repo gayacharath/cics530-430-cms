@@ -1,7 +1,9 @@
 class Project < ActiveRecord::Base
 	belongs_to :owner, :foreign_key => :owner_id, :class_name => "User"
 	has_and_belongs_to_many :users
-	validates_associated :users, :owner
+
+	# validates associated is crashing app, commenting out for now - Matthew
+	# validates_associated :users, :owner
 
 	attr_accessible :started_at, :ending_at, :name, :description, :owner_id
 

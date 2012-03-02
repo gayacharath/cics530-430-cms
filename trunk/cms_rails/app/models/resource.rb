@@ -2,7 +2,9 @@ class Resource < ActiveRecord::Base
 	belongs_to :project, :foreign_key => :pid, :class_name => "Project"
 	belongs_to :owner, :foreign_key => :owner_id, :class_name => "User"
 	has_and_belongs_to_many :users
-	validates_associated :users, :owner, :project
+
+	# validates associated is crashing app, commenting out for now - Matthew
+	# validates_associated :users, :owner, :project
 	
 	attr_accessible :resourcetype, :version, :modifydate, :resourcename, :resourcecontent, :owner_id, :pid
 

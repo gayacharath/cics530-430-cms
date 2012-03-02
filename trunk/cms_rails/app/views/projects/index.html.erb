@@ -1,25 +1,26 @@
-<% title "Projects" %>
-
-<table>
-  <tr>
-    <th>Started At</th>
-    <th>Ending At</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Owner</th>
-  </tr>
-  <% for project in @projects %>
+<h1>Projects</h1>
+<table class="table table-striped">
+  <thead>
     <tr>
-      <td><%= project.started_at %></td>
-      <td><%= project.ending_at %></td>
-      <td><%= project.name %></td>
-      <td><%= project.description %></td>
-      <td><%= project.owner_id %></td>
-      <td><%= link_to "Show", project %></td>
-      <td><%= link_to "Edit", edit_project_path(project) %></td>
-      <td><%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></td>
+      <th>ID</th>
+      <th>Started at</th>
+      <th>Created at</th>
+      <th>Actions</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.id %></td>
+        <td><%= link_to project.started_at, project_path(project) %></td>
+        <td><%= project.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', project_path(project), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<p><%= link_to "New Project", new_project_path %></p>
+<%= link_to 'New', new_project_path, :class => 'btn btn-primary' %>

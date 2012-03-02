@@ -1,23 +1,26 @@
-<% title "Announcements" %>
-
-<table>
-  <tr>
-    <th>Topic</th>
-    <th>Content</th>
-    <th>Created</th>
-    <th>Updated</th>
-  </tr>
-  <% for announcement in @announcements %>
+<h1>Announcements</h1>
+<table class="table table-striped">
+  <thead>
     <tr>
-      <td><%= announcement.topic %></td>
-      <td><%= announcement.content %></td>
-      <td><%= announcement.created_at %></td>
-      <td><%= announcement.updated_at %></td>
-      <td><%= link_to "Show", announcement %></td>
-      <td><%= link_to "Edit", edit_announcement_path(announcement) %></td>
-      <td><%= link_to "Destroy", announcement, :confirm => 'Are you sure?', :method => :delete %></td>
+      <th>ID</th>
+      <th>User</th>
+      <th>Created at</th>
+      <th>Actions</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @announcements.each do |announcement| %>
+      <tr>
+        <td><%= announcement.id %></td>
+        <td><%= link_to announcement.user_id, announcement_path(announcement) %></td>
+        <td><%= announcement.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_announcement_path(announcement), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', announcement_path(announcement), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<p><%= link_to "New Announcement", new_announcement_path %></p>
+<%= link_to 'New', new_announcement_path, :class => 'btn btn-primary' %>
