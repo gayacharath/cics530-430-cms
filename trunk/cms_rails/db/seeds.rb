@@ -9,23 +9,27 @@
 User.delete_all
 Project.delete_all
 
-
 10.times do
-		u  = User.create(	
-				:full_name 	=> Faker::Name.name,
-				:pref_name 	=> Faker::Name.first_name,
-				:email		=> Faker::Internet.email,
-				:admin		=> false
-			)
+	u  = User.create(	
+			:full_name 	=> Faker::Name.name,
+			:pref_name 	=> Faker::Name.first_name,
+			:email		=> Faker::Internet.email,
+			:admin		=> false,
+			:password	=> "password",
+			:password_confirmation => "password"
+		)
 
-		p = Project.create(
+	if u
+		p = Project.new(
 				:name 		=> Faker::Company.name,
-				:description=> Faker::Company.bs,
-				:owner		=> u,
+				:description	=> Faker::Company.bs,
 				:started_at	=> Time.now,
 				:ending_at	=> 1.year.from_now
 			)
-	
+		p.owner = u
+		p.save
+
+
 		5.times do
 			temp  = User.create(	
 				:full_name 	=> Faker::Name.name,
@@ -35,4 +39,16 @@ Project.delete_all
 			)
 			p.users << temp
 		end
+	
+		a = Announcement.new
+		a.topic = Faker::Company.name
+		a.content = Faker::Company.bs
+		a.kind = "project announcement"
+		a.user = u
+		a.save
+	
+	end
 end
+
+
+	
