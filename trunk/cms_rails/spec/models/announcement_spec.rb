@@ -4,11 +4,12 @@ describe Announcement do
 	context "validations" do
 
 		before(:each) do
-			@announcement = Factory(:announcement)
+			@announcement = Factory.build(:announcement)
     end
 
     it "starts out valid" do
       @announcement.should be_valid
+      @announcement.save
     end
 
 		it 'must have a topic' do
@@ -31,13 +32,13 @@ describe Announcement do
 			@announcement.should_not be_valid
     end
 
-    it 'must have content with minimum 32 characters' do
-			@announcement.content = 'some content'
+    it 'must have content with minimum 5 characters' do
+			@announcement.content = 'word'
 			@announcement.should_not be_valid
     end
 
-		it 'must have a type' do
-			@announcement.type = nil
+		it 'must have a kind' do
+			@announcement.kind = nil
 			@announcement.should_not be_valid
     end
 
