@@ -5,11 +5,17 @@ describe Project do
   context "validations" do
 
     before(:each) do
-      @project = Factory(:project)
+      @project = Factory.build(:project)
     end
 
-    it 'starts out valid project creation' do
+    it 'starts out valid on creation' do
       @project.should be_valid
+      @project.save
+      @project.errors.each do |x|
+         x.each do |y|
+           puts y
+         end
+      end
     end
 
     it 'must have a started date' do
@@ -50,7 +56,7 @@ describe Project do
     it 'must have a unique name' do
       @project.save.should be_true
       project2 = Project.new(:name => "CICS-530", :started_at => @project.started_at, :ending_at => @project.ending_at,
-      :description => @project.description, :owner_id => @project.owner_id)
+                             :description => @project.description, :owner_id => @project.owner_id)
       project2.should_not be_valid
     end
   end

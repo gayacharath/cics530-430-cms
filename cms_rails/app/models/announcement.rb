@@ -4,7 +4,7 @@ class Announcement < ActiveRecord::Base
   validates_presence_of :topic, :content, :kind
   
   validates_length_of :topic, :minimum => 4, :maximum => 256, :allow_nil => false, :allow_blank => false
-  validates_format_of :topic, :with => /^[\sa-zA-Z]{4,}$/i # need to analyze the validation
+  validates_format_of :topic, :with => /^[\sa-zA-Z_-]{4,}$/i # need to analyze the validation
 
   validates_length_of :content, :minimum => 5, :maximum => 256, :allow_nil => false, :allow_blank => false
 
