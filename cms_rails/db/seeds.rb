@@ -30,7 +30,7 @@ Resource.delete_all
 		p.owner = u
 		p.save
 
-
+		
 		5.times do
 			temp  = User.create({	
 					:full_name 	=> Faker::Name.name,
@@ -48,7 +48,22 @@ Resource.delete_all
 		a.kind = "project announcement"
 		a.user = u
 		a.save
-	
+		
+		if p		
+			5.times do			
+			r= Resource.new(
+				:name		=> Faker::Company.name,
+				:version	=> 1..5,
+				:description	=> Faker::Company.bs,
+				:location	=> "resource",
+				:mime		=> "pdf"
+			)
+			r.user = u
+    			r.project = p
+			r.save
+			end
+		end		
+
 	end
 end
 
