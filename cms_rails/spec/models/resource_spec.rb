@@ -37,7 +37,7 @@ describe Resource do
     end
 
     it 'must have a name with at least one letter or number' do
-      @resource.name = "-"
+      @resource.name = "a2"
       @resource.should_not be_valid
     end
 
