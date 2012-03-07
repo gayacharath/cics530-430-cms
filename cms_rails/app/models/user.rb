@@ -26,4 +26,9 @@ class User < ActiveRecord::Base
   scope :administrator, where(:admin => 1)
 
 
+  def name
+    pref_name || full_name
+  end
+
+
 end

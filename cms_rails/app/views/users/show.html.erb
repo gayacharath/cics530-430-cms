@@ -1,32 +1,108 @@
-<h1>User</h1>
+<div class="accordion" id="accordion1">
+<h3> Managed Projects </h3>
 
-<p>
-  <b>Full name</b><br>
-  <%= @user.full_name %>
-</p>
+<% if @managed_projects.empty? %>
 
-<p>
-  <b>Pref name</b><br>
-  <%= @user.pref_name %>
-</p>
+	<div class="alert alert-block fade in">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            <h4 class="alert-heading">No Projects</h4>
+            <p>Some helpful suggestion message</p>
+            <p>
+              <%= link_to "Create One", new_project_path, :class => "btn" %>
+            </p>
+          </div>
 
-<p>
-  <b>Email</b><br>
-  <%= @user.email %>
-</p>
 
-<p>
-  <b>Admin</b><br>
-  <%= @user.admin %>
-</p>
+<% else %>
 
-<p>
-  <b>Password digest</b><br>
-  <%= @user.password_digest %>
-</p>
+
+<% @managed_projects.each do |mp| %>
+<div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#managedCollapse<%= mp.id %>">
+                 <%= mp.name %>
+                </a>
+              </div>
+              <div id="managedCollapse<%= mp.id %>" class="accordion-body collapse" style="height: 0px; ">
+                <div class="accordion-inner">
+                	<table>
+                		<tr>
+                			<th>Contributors:</th>
+                			<td><%= mp.users.count %></td>
+                		</tr>
+                		<tr>
+                			<th>Resrources:</th>
+                			<td><%= mp.resources.count %></td>
+                		</tr>
+                	</table>
+
+                	<%= mp.description %>
+                <ul class="nav nav-pills">
+            		<li class="active"><%= link_to "view", project_path(mp) %></li>
+				</ul>
+                </div>
+              </div>
+            </div>
+<% end %>
+
+<% end %>
+</div>
+
+
+<div class="accordion" id="accordion2">
+<h3> Contributing Projects </h3>
+
+<% if @contrib_projects.empty? %>
+
+	<div class="alert alert-block fade in">
+            
+            <h4 class="alert-heading">No Contributions Found</h4>
+            <p>Some helpful suggestion message</p>
+            <p>
+              <%= link_to "Find One", projects_path, :class => "btn" %>
+            </p>
+          </div>
+
+
+<% else %>
+
+<% @contrib_projects.each do |mp| %>
+<div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#managedCollapse<%= mp.id %>">
+                 <%= mp.name %>
+                </a>
+              </div>
+              <div id="managedCollapse<%= mp.id %>" class="accordion-body collapse" style="height: 0px; ">
+                <div class="accordion-inner">
+                	<table>
+                		<tr>
+                			<th>Contributors:</th>
+                			<td><%= mp.users.count %></td>
+                		</tr>
+                		<tr>
+                			<th>Resrources:</th>
+                			<td><%= mp.resources.count %></td>
+                		</tr>
+                	</table>
+
+                	<%= mp.description %>
+                <ul class="nav nav-pills">
+            		<li class="active"><%= link_to "view", project_path(mp) %></li>
+				</ul>
+                </div>
+              </div>
+            </div>
+<% end %>
+
+<% end %>
+</div>
+            
 
 <div class="form-actions">
   <%= link_to 'Back', users_path, :class => 'btn'  %>
   <%= link_to 'Edit', edit_user_path(@user), :class => 'btn' %>
   <%= link_to 'Delete', user_path(@user), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>
+
+
