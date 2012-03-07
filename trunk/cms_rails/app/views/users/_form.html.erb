@@ -19,21 +19,21 @@
     <div class="control-group">
       <%= f.label :email, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :email, :class => 'text_field' %>
+        <%= f.text_field :email, :class => 'text_field', :type => "email" %>
       </div>
     </div>
 
     <div class="control-group">
-      <%= f.label :admin, :class => 'control-label' %>
+      <%= f.label :password, :class => 'control-label' %>
       <div class="controls">
-        <%= f.check_box :admin, :class => 'check_box' %>
+        <%= f.text_field :password, :class => 'text_field', :type => "password" %>
       </div>
     </div>
 
     <div class="control-group">
-      <%= f.label :password_digest, :class => 'control-label' %>
+      <%= f.label :password_confirmation, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :password_digest, :class => 'text_field' %>
+        <%= f.text_field :password_confirmation, :class => 'text_field', :type => "password" %>
       </div>
     </div>
 

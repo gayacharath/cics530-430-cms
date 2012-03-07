@@ -13,7 +13,10 @@ CmsRails::Application.routes.draw do
   
   resources :sessions
   
-  match 'login' => 'sessions#new'#, :as => :login
+  match 'login' => 'sessions#new', :as => :login
+  match 'logout' => 'sessions#destroy', :as => :logout
   resources :users
+
+  root :to => 'sessions#new'
 
 end

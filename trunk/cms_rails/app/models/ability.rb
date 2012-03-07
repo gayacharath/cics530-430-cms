@@ -1,6 +1,10 @@
-class Ability < CanCan::Ability
+class Ability
+  include CanCan::Ability
 
   def initialize(user)
-      can :read, :all
+  	if user
+      	can :manage, Project, :owner_id => user.id
+    end
   end
+
 end

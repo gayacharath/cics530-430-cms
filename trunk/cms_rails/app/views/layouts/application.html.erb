@@ -42,7 +42,25 @@
                 <li><%= link_to "Resources", resources_path %></li>
                 <li><%= link_to "Announcements", announcements_path  %></li>
             </ul>
+
+            <p class="navbar-text pull-right">
+            <% if current_user %>
+            Welcome Back, <%= current_user.name %> 
+            <%= link_to 'logout', logout_path %>
+            <% else %>
+            Hey Stranger <%= link_to "login", login_path %> or <%= link_to "register", new_user_path %>
+            <% end %>
+          </p>
           </div><!--/.nav-collapse -->
+
+
+
+
+          
+            
+          
+
+
         </div>
       </div>
     </div>
@@ -60,7 +78,8 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-                <li><%= link_to "Link1", "/path1"  %></li>
+                
+                <li><%=link_to "Home", user_path(current_user)%></li>
                 <li><%= link_to "Link2", "/path2"  %></li>
                 <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
