@@ -24,8 +24,6 @@ end
 
 gem 'jquery-rails'
 
-gem 'meta_search', '>=1.1.0.pre'
-
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -39,7 +37,9 @@ gem 'meta_search', '>=1.1.0.pre'
 gem 'rails-dev-tweaks', '~> 0.5.1'
 gem 'letter_opener', :group => :development
 
-gem "rspec-rails", :group => [:test, :development]
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+end
 
 gem 'faker'
 
@@ -49,7 +49,7 @@ group :test do
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard-rspec"
-  gem "spork", "> 0.9.0.rc"
+  gem "spork"
   gem "guard-spork"
   gem "escape_utils"
 #  gem 'simplecov', '>= 0.4.0', :require => false

@@ -2,8 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   #Authentication Code Begin
-  force_ssl
-  private
   
   def current_user
   	if @current_user.nil? && session[:user_id]

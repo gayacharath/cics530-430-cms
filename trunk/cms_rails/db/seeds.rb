@@ -10,7 +10,7 @@ Project.delete_all
 Announcement.delete_all
 Resource.delete_all
 
-10.times do
+100.times do
 	u  = User.create(	
 			:full_name 	=> Faker::Name.name,
 			:pref_name 	=> Faker::Name.first_name,
@@ -32,12 +32,14 @@ Resource.delete_all
 
 		
 		5.times do
-			temp  = User.create({	
-					:full_name 	=> Faker::Name.name,
-					:pref_name 	=> Faker::Name.first_name,
-					:email		=> Faker::Internet.email,
-					:admin		=> false
-				}, :without_protection => true)
+			temp  = User.create(	
+				:full_name 	=> Faker::Name.name,
+				:pref_name 	=> Faker::Name.first_name,
+				:email		=> Faker::Internet.email,
+				:admin		=> false,
+				:password	=> "password",
+				:password_confirmation => "password"
+			)
 			
 			p.users << temp
 		end	
@@ -59,7 +61,7 @@ Resource.delete_all
 				:mime		=> "pdf"
 			)
 			r.user = u
-    			r.project = p
+    		r.project = p
 			r.save
 			end
 		end		
