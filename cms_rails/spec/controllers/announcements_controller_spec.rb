@@ -1,57 +1,85 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe AnnouncementsController do
-  fixtures :all
   render_views
 
-  it "index action should render index template" do
-    get :index
-    response.should render_template(:index)
+  describe "index" do
+
+    it "should render index template" do
+      get "index"
+      response.should render_template(:index)
+    end
+
   end
 
-  it "show action should render show template" do
-    get :show, :id => Announcement.first
-    response.should render_template(:show)
+  describe "show" do
+
+    it "show action should render show template" do
+      get :show, :id => Announcement.first
+      response.should render_template(:show)
+    end
+
   end
 
-  it "new action should render new template" do
-    get :new
-    response.should render_template(:new)
+  describe "new" do
+
+    it "new action should render new template" do
+      get :new
+      response.should render_template(:new)
+    end
+
   end
 
-  it "create action should render new template when model is invalid" do
-    Announcement.any_instance.stubs(:valid?).returns(false)
-    post :create
-    response.should render_template(:new)
+  describe "create" do
+
+    it "create action should render new template when model is invalid" do
+      Announcement.any_instance.stubs(:valid?).returns(false)
+      post :create
+      response.should render_template(:new)
+    end
+
+    it "create action should redirect when model is valid" do
+      Announcement.any_instance.stubs(:valid?).returns(true)
+      post :create
+      response.should redirect_to(announcement_url(assigns[:announcement]))
+    end
+
   end
 
-  it "create action should redirect when model is valid" do
-    Announcement.any_instance.stubs(:valid?).returns(true)
-    post :create
-    response.should redirect_to(announcement_url(assigns[:announcement]))
+  describe "edit" do
+
+    it "edit action should render edit template" do
+      get :edit, :id => Announcement.first
+      response.should render_template(:edit)
+    end
+
   end
 
-  it "edit action should render edit template" do
-    get :edit, :id => Announcement.first
-    response.should render_template(:edit)
+  describe "update" do
+
+    it "update action should render edit template when model is invalid" do
+      Announcement.any_instance.stubs(:valid?).returns(false)
+      put :update, :id => Announcement.first
+      response.should render_template(:edit)
+    end
+
+    it "update action should redirect when model is valid" do
+      Announcement.any_instance.stubs(:valid?).returns(true)
+      put :update, :id => Announcement.first
+      response.should redirect_to(announcement_url(assigns[:announcement]))
+    end
+
   end
 
-  it "update action should render edit template when model is invalid" do
-    Announcement.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Announcement.first
-    response.should render_template(:edit)
-  end
+  describe "destroy" do
 
-  it "update action should redirect when model is valid" do
-    Announcement.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Announcement.first
-    response.should redirect_to(announcement_url(assigns[:announcement]))
-  end
+    it "should destroy model and redirect to index action" do
+      announcement = Factory(:announcement)
+      delete :destroy, :id => announcement.id
+      response.should redirect_to(announcements_url)
+      Announcement.exists?(announcement.id).should be_false
+    end
 
-  it "destroy action should destroy model and redirect to index action" do
-    announcement = Announcement.first
-    delete :destroy, :id => announcement
-    response.should redirect_to(announcements_url)
-    Announcement.exists?(announcement.id).should be_false
   end
+  
 end

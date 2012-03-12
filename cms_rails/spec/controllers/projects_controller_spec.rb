@@ -1,8 +1,29 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe ProjectsController do
-  fixtures :all
   render_views
+
+  describe "index" do
+    
+  end
+
+  describe "show" do
+  end
+
+  describe "new" do
+  end
+
+  describe "create" do
+  end
+
+  describe "edit" do
+  end
+
+  describe "update" do
+  end
+
+  describe "destroy" do
+  end
 
   it "index action should render index template" do
     get :index
