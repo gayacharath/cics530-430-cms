@@ -4,7 +4,6 @@ describe SessionsController do
   render_views
 
   describe "new" do
-
     it "renders the new template if not logged in" do
       get :new
       response.should render_template(:new)
@@ -17,18 +16,16 @@ describe SessionsController do
       get :new
       response.should be_redirect
     end
-
   end
 
   describe "create" do
-
     before(:each) do
       @session = {}
       @user = Factory(:user)
       controller.stubs(:session).returns(@session)
     end
 
-    it "finds ther user by email" do
+    it "finds their user by email" do
       User.expects(:find_by_email).with(@user.email).returns(@user)
       post :create, :email => @user.email, :password => "password"
     end
