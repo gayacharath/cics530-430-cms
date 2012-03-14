@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
 
+  before_filter :is_logged_in
+  
   respond_to :html, :xml, :json
 
   def index
