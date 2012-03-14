@@ -1,3 +1,19 @@
+<%= simple_form_for @announcement, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Announcement</legend>
+    
+    <%= f.input :user_id, :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
+    <%= f.input :topic, :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
+    <%= f.input :content, :as => 'text', :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
+    <%= f.input :kind, :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', announcements_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>
+
+
 <%= form_for @announcement, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Announcement</legend>
