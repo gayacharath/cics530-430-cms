@@ -3,6 +3,10 @@ require 'spec_helper'
 describe UsersController do
   render_views
 
+  before(:each) do
+      controller.stubs(:is_logged_in)
+  end
+    
   describe "index" do
 
     it "renders index template" do
@@ -74,6 +78,12 @@ describe UsersController do
     end
 
     it "create action should redirect when model is valid" do
+      User.any_instance.stubs(:valid?).returns(true)
+      post :create
+      response.should redirect_to(user_url(assigns[:user]))
+    end
+    
+    it "create action should set the sessions when model is valid" do
       User.any_instance.stubs(:valid?).returns(true)
       post :create
       response.should redirect_to(user_url(assigns[:user]))

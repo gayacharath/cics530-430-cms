@@ -2,7 +2,11 @@ require 'spec_helper'
 
 describe ResourcesController do
   render_views
-
+  
+  before(:each) do
+      controller.stubs(:is_logged_in)
+  end
+  
   describe "index" do
     it "should render index template" do
       get :index
