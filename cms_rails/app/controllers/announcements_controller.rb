@@ -1,4 +1,6 @@
 class AnnouncementsController < ApplicationController
+  before_filter :is_logged_in
+  
   def index
     @announcements = Announcement.all
   end

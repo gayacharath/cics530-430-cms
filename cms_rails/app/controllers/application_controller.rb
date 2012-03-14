@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
-  #Authentication Code End
   
+  def is_logged_in
+    if current_user.nil? 
+      redirect_to login_url, :alert => "Please login First!" 
+      return false
+    end
+  end
+  #Authentication Code End
 end
