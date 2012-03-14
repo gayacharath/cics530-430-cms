@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   validates_length_of :full_name, :minimum => 3, :allow_nil => false, :allow_blank => false
   validates_format_of :full_name, :with => /^[\sa-zA-Z]{3,}$/i
   
-  scope :administrator, where(:admin => 1)
+  scope :administrator, where(:admin => true)
 
 
   def name
