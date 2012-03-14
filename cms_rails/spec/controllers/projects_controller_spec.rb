@@ -2,7 +2,11 @@ require 'spec_helper'
 
 describe ProjectsController do
   render_views
-
+  
+  before(:each) do
+      controller.stubs(:is_logged_in)
+  end
+  
   describe "index" do
     it "renders index template" do
       get :index
