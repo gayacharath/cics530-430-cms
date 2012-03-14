@@ -17,6 +17,9 @@ CmsRails::Application.routes.draw do
   
   match 'login' => 'sessions#new', :as => :login
   match 'logout' => 'sessions#destroy', :as => :logout
+
+  match 'users/:id/create_admin' => "admins#create", :as => :create_admin, :via => :get
+  match 'users/:id/destroy_admin' => "admins#destroy", :as => :remove_admin, :via => :get
   
 
   root :to => 'sessions#new'
