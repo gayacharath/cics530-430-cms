@@ -4,15 +4,30 @@ describe ProjectsController do
   render_views
 
   describe "index" do
-    it "should render index template" do
+    it "renders index template" do
       get :index
       response.should render_template(:index)
     end
-  end
+
+    it 'loads all the projects' do 
+      Project.expects(:all).returns([])
+      get :index
+      assigns(:project).should_not eq([])
+    end
+
+  end 
 
   describe "show" do
+
+    before(:each) do
+      @project = Factory(:project)
+      @stub = []
+      @stub.stubs(:all).returns([])
+      Project.stubs(:find).returns(@project)
+    end
+
     it "should render show template" do
-      get :show, :id => Project.first
+      get :show, :id => "22"
       response.should render_template(:show)
     end
   end
@@ -39,33 +54,54 @@ describe ProjectsController do
   end
 
   describe "edit" do
+
+  before(:each) do
+      @project = Factory.build(:project)
+      Project.stubs(:find).returns(@project)
+    end
+
     it "should render edit template" do
-      get :edit, :id => Project.first
+      get :edit, :id => "22"
       response.should render_template(:edit)
     end
   end
 
   describe "update" do
-    it "should render edit template when model is invalid" do
+
+    before(:each) do
+      @project = Factory(:project)
+    end
+
+    it "update action should render edit template when model is invalid" do
       Project.any_instance.stubs(:valid?).returns(false)
-      put :update, :id => Project.first
+      put :update, :id => @project.id
       response.should render_template(:edit)
     end
 
-    it "should redirect when model is valid" do
+    it "update action should redirect when model is valid" do
       Project.any_instance.stubs(:valid?).returns(true)
-      put :update, :id => Project.first
+      put :update, :id => @project.id
       response.should redirect_to(project_url(assigns[:project]))
     end
   end
 
   describe "destroy" do
-    it "should destroy model and redirect to index action" do
-      project = Project.first
-      delete :destroy, :id => project
-      response.should redirect_to(projects_url)
-      Project.exists?(project.id).should be_false
+
+    before(:each) do
+      @project = Factory(:project)
     end
+
+    it "destroys the model" do
+      delete :destroy, :id => @project.id
+      response.should redirect_to(projects_url)
+      Project.exists?(@project.id).should be_false
+    end
+
+    it 'redirects to the index action' do
+      delete :destroy, :id => @project.id
+      response.should redirect_to(projects_url)
+    end
+
   end
 
 end
