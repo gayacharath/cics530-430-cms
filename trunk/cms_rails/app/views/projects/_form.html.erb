@@ -1,3 +1,19 @@
+<%= simple_form_for @project, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Project</legend>
+    
+    <%= f.input :started_at, :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
+    <%= f.input :ending_at, :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
+    <%= f.input :name, :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
+    <%= f.input :description, :as => 'text', :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
+    <%= f.input :owner_id, :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', projects_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>
+
 <%= form_for @project, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Project</legend>
