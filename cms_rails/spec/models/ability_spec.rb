@@ -30,39 +30,80 @@ describe Ability do
 
       end
 
-      it "can delete owned resource" do
+      context "manager" do
+        it "can delete other user's resource"  do
 
+        end
+
+        it "can replace other user's owned resource" do
+
+        end
+
+        it "can modify other user's owned resource" do
+
+        end
+
+        it "can download resource" do
+
+        end
+
+        it "can upload resource" do
+
+        end
+
+        it "can delete owned resource" do
+
+        end
+
+        it "can replace owned resource" do
+
+        end
+
+        it "can modify owned resource" do
+
+        end
+
+        it "can remove a member from project" do
+
+        end
       end
 
-      it "can not delete other user's resource"  do
+      context "contributor" do
+        it "can not delete other user's resource"  do
 
+        end
+
+        it "can not replace other user's owned resource" do
+
+        end
+        it "can not modify other user's owned resource" do
+
+        end
+
+        it "can download resource" do
+
+        end
+
+        it "can upload resource" do
+
+        end
+
+        it "can delete owned resource" do
+
+        end
+
+        it "can replace owned resource" do
+
+        end
+
+        it "can modify owned resource" do
+
+        end
+
+        it "can not remove a member from project" do
+
+        end
       end
-
-      it "can replace owned resource" do
-
-      end
-
-      it "can not replace other user's owned resource" do
-
-      end
-
-      it "can modify owned resource" do
-
-      end
-
-      it "can not modify other user's owned resource" do
-
-      end
-
-      it "can download associated project resource" do
-
-      end
-
-      it "can not download non-associated project resource"  do
-
-      end
-
-
     end
 
 end

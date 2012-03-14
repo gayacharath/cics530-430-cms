@@ -35,7 +35,7 @@ ActiveAdmin::Dashboards.build do
 			column "Author", :user_id
 			column "Created date", :created_at
 		end
-		strong { link_to "View all projects", admin_announcements_path }
+		strong { link_to "View all announcements", admin_announcements_path }
 	end
 	
   # Define your dashboard sections here. Each block will be
