@@ -8,7 +8,7 @@ class Resource < ActiveRecord::Base
 
 	attr_accessible :name, :version, :description, :location, :mime, :user_id, :project_id
 
-	validates_presence_of :name, :version, :description, :location, :mime, :project_id, :user_id
-	validates_format_of :name, :with => /^[\sa-zA-Z]{3,}$/i
+	validates_presence_of :name, :version, :description, :location, :mime, :project_id, :user_id, :created_at, :updated_at
+	validates_format_of :name, :with => /^[a-zA-Z0-9_-]{3,}[\.]{0,}[a-zA-Z0-9_-]{0,}$/i
 	validates_length_of :description, :minimum => 4, :maximum => 256
 end

@@ -6,14 +6,8 @@ describe Resource do
     end
 
     it 'starts out valid on creation' do
-			@resource.should be_valid
+      @resource.should be_true
       @resource.save
-      @resource.errors.each do |x|
-           x.each do |y|
-             puts y
-
-        end
-      end
     end
     
     it 'must have an owner' do
@@ -92,9 +86,10 @@ describe Resource do
 
     #further validation required: unique name for a given directory
     it 'name must be unique to a project' do
-      #a file with the same name already exists in the same directory
       @resource.save.should be_true
-      resource2 = Resource.new(:name =>  @resource.name, :project_id => @resource.project_id)
-      resource2.should_not be_valid
+      @resource2 = Factory(:resource, :project_id=>@resource.project_id,
+                                            :name => @resource.name)
+      @resource2.save.should_not be_true
+
     end
 end
