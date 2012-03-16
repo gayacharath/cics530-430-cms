@@ -1,5 +1,12 @@
 class AdminsController < ApplicationController
 
+	def change
+    @user = User.find(params[:id])
+	
+	redirect_to change_user_path(@user), :notice => "Change Admin Mode Here!"
+	
+	end
+
   def create
     @user = User.find(params[:id])
     @user.admin = true
