@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     end
   end
 
+	
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -32,6 +33,8 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+  
+  
 
   def update
     @user = User.find(params[:id])
