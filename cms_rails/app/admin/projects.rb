@@ -1,4 +1,7 @@
 ActiveAdmin.register Project do
+	member_action :projectmanagement do
+      @project = Project.find(params[:id])
+	end
   
   index do
     column "Project Name", :name
