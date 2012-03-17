@@ -1,59 +1,12 @@
 <%= simple_form_for(@user, :html => { :class => 'form-horizontal' } ) do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> User</legend>
-    <%= f.input :full_name, :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
-    <%= f.input :pref_name, :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
-    <%= f.input :email, :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
-    <%= f.input :password, :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
-    <%= f.input :password_confirmation, :wrapper_html => { :class => 'control-group'}, :label_html => { :class => 'control-label'}, :input_html => { :class => 'text-field'} %>
+    <%= f.input :full_name %>
+    <%= f.input :pref_name %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
     
-    <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', users_path, :class => 'btn' %>
-    </div>
-  </fieldset>
-<% end %>
-
-
-<%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
-  <fieldset>
-    <legend><%= controller.action_name.capitalize %> User</legend>
-
-    <div class="control-group">
-      <%= f.label :full_name, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :full_name, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :pref_name, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :pref_name, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :email, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :email, :class => 'text_field', :type => "email" %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :password, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :password, :class => 'text_field', :type => "password" %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :password_confirmation, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :password_confirmation, :class => 'text_field', :type => "password" %>
-      </div>
-    </div>
-
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Cancel', users_path, :class => 'btn' %>
