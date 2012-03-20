@@ -19,7 +19,7 @@ FactoryGirl.define do
   factory :project do
     started_at  "2012-02-15 00:00:00"
     ending_at  "2012-03-15 00:00:00"
-    name  "CICS-530"
+    sequence(:name){|n| "CICS-#{n}" }
     description  "Term project for MSS students based on content management system"
     owner_id  1
   end

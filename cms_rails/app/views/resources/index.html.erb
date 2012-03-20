@@ -12,9 +12,11 @@
   <tbody>
     <% @resources.each do |resource| %>
       <tr>
-        <td><%= resource.id %></td>
-        <td><%= link_to resource.user_id, resource_path(resource) %></td>
-        <td><%= resource.created_at %></td>
+        <td><%= link_to resource.name, resource %></td>
+        <td><%= link_to resource.user.name, resource_path(resource) %></td>
+        <td><%= resource.updated_at.to_s(:slash_time) %></td>
+        <td><%= link_to resource.file_name, resource.file.url if resource.file? %></td>
+
         <td>
           <%= link_to 'Edit', edit_resource_path(resource), :class => 'btn btn-mini' %>
           <%= link_to 'Destroy', resource_path(resource), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>

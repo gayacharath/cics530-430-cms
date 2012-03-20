@@ -5,7 +5,7 @@ describe Ability do
     context "is_admin" do
       before(:each) do
         @user = Factory(:user)
-        @ability = Ability.new(@user, nil)
+        @ability = Ability.new(@user)
       end
 
     end
@@ -19,7 +19,7 @@ describe Ability do
       context "any user" do
         before(:each) do
           @friend = Factory(:user)
-          @ability = Ability.new(@user, nil)
+          @ability = Ability.new(@user)
         end
 
         it "can edit themselves" do
@@ -42,12 +42,13 @@ describe Ability do
       context "manager" do
         before(:each) do
           @manager = @user
+          @random_user = Factory(:user)
           @contributor = Factory(:user)
           @project = Factory(:project, :owner_id => @manager.id)
           @project.users << @contributor
           @resource_m = Factory(:resource, :user_id => @manager.id)
           @resource_c = Factory(:resource, :user_id => @contributor.id, :project_id => @project.id)
-          @ability = Ability.new(@manager, @project)
+          @ability = Ability.new(@manager)
         end
 
         it "can edit owned project" do
@@ -56,6 +57,12 @@ describe Ability do
 
         it "can view their associated projects" do
 
+        end
+
+        it "cannot manage a random resource" do
+          @proj = Factory(:project, :owner_id => @random_user.id)
+          @res = Factory(:resource, :project_id => @proj.id, :user_id => @random_user.id)
+          @ability.should_not be_able_to(:manage, @res)
         end
 
         it "can delete other user's resource"  do
@@ -107,7 +114,7 @@ describe Ability do
           @project.users << @contributor
           @resource_m = Factory(:resource, :user_id => @manager.id)
           @resource_c = Factory(:resource, :user_id => @contributor.id)
-          @ability = Ability.new(@contributor, nil)
+          @ability = Ability.new(@contributor)
         end
 
         it "starts out with contributor" do
