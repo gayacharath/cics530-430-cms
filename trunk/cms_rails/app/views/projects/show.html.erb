@@ -1,19 +1,6 @@
-<h1>Project</h1>
+<h1><%= @project.name %></h1>
 
-<p>
-  <b>Started at</b><br>
-  <%= @project.started_at %>
-</p>
-
-<p>
-  <b>Ending at</b><br>
-  <%= @project.ending_at %>
-</p>
-
-<p>
-  <b>Name</b><br>
-  <%= @project.name %>
-</p>
+<h3>Owner: <%= @project.owner_id %></h3><br>
 
 <p>
   <b>Description</b><br>
@@ -21,9 +8,84 @@
 </p>
 
 <p>
-  <b>Owner</b><br>
-  <%= @project.owner_id %>
+  <b>Project Period: </b>
+ <%= @project.started_at.strftime("%m/%d/%Y") %> -
+  <%= @project.ending_at.strftime("%m/%d/%Y") %>
 </p>
+
+<b> Project Contributors: </b>
+
+<% if @managed_users.empty? %>
+
+	<div class="alert alert-block fade in">
+            
+            <h4 class="alert-heading">No Contributions Found</h4>
+            <p>Some helpful suggestion message</p>
+            <p>
+              <%= link_to "Find One", users_path, :class => "btn" %>
+            </p>
+          </div>
+
+
+<% else %>
+
+<% @managed_users.each do |pc| %>
+<div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#managedCollapse<%= pc.id %>">
+                 <%= pc.name %>
+                </a>
+              </div>
+              <div id="managedCollapse<%= pc.id %>" class="accordion-body collapse" style="height: 0px; ">
+                <div class="accordion-inner">
+                      	<%= pc.email %>
+                
+                </div>
+              </div>
+            </div>
+<% end %>
+<%= link_to "Add contributors", user_path, :class => "btn" %>
+<% end %>
+
+
+
+<p></p>
+<b> Project Resources: </b>
+
+<% if @managed_resources.empty? %>
+
+	<div class="alert alert-block fade in">
+            
+            <h4 class="alert-heading">No Resource Found</h4>
+            <p>Add a resource</p>
+            <p>
+              <%= link_to "Create One", new_resource_path, :class => "btn" %>
+            </p>
+          </div>
+
+
+<% else %>
+
+<% @managed_resources.each do |pr| %>
+<div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#managedCollapse<%= pr.id %>">
+                 <%= pr.name %> (version:<%=pr.version%> )
+                </a>
+              </div>
+              <div id="managedCollapse<%= pr.id %>" class="accordion-body collapse" style="height: 0px; ">
+                <div class="accordion-inner">
+                      	<%= pc.email %>
+                
+                </div>
+              </div>
+            </div>
+<% end %>
+<%= link_to "Add Resources", user_path, :class => "btn" %>
+<% end %>
+
+
+
 
 <div class="form-actions">
   <%= link_to 'Back', projects_path, :class => 'btn'  %>
