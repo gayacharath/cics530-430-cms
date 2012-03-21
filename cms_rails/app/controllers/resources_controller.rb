@@ -1,13 +1,14 @@
 class ResourcesController < ApplicationController
   
   before_filter :is_logged_in
-  
+
   def index
-    @resources = Resource.all
+    @resource = Resource.all
   end
 
   def show
     @resource = Resource.find(params[:id])
+
   end
 
   def new

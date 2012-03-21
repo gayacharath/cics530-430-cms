@@ -5,12 +5,13 @@ class ProjectsController < ApplicationController
   respond_to :html, :xml, :json
 
   def index
-    @projects = Project.all
-    respond_with @projects
+    @project = Project.all
   end
 
   def show
     @project = Project.find(params[:id])
+    @managed_users = @project.users.all
+    @managed_resources = @project.resources.all
   end
 
   def new

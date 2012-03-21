@@ -40,34 +40,46 @@
 
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-                <li><%= link_to "Users", users_path  %></li>
-                <li><%= link_to "Projects", projects_path %></li>
-                <li><%= link_to "Resources", resources_path %></li>
-                <li><%= link_to "Announcements", announcements_path  %></li>
+		 <% if current_user %>
+                <li><%=link_to "Dashboard", user_path(current_user)  %></li>
+                <% end %>
+		 <form class="navbar-search pull-left">
+			<input type="text" class="search-query" placeholder="Search">
+		 </form>
             </ul>
 
-            <p class="navbar-text pull-right">
+             <p class="navbar-text pull-right">
             <% if current_user %>
-            Welcome Back, <%= current_user.name %> 
-            <%= link_to 'logout', logout_path %>
-            <% else %>
-            Hey Stranger <%= link_to "login", login_path %> or <%= link_to "register", new_user_path %>
-            <% end %>
+	    <ul class="nav pull-right">
+            <li class="divider-vertical"></li>
+              <li class="dropdown">
+              
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-white icon-user"></i>
+              <%= current_user.name %> 
+              </a>
+              <ul class="dropdown-menu">
+              <li><%= link_to 'Settings', "/path1" %></li> 
+              <li><%= link_to 'Logout', logout_path %></li>
+              </ul>
+              </li>
+              <li class="divider-vertical"></li>
+            </ul>
           </p>
+	  	
+            <% else %>
+            	Hey Stranger <%= link_to "login", login_path %> or <%= link_to "register", new_user_path %>
+            <% end %>
+
+
           </div><!--/.nav-collapse -->
-
-
-
-
-          
-            
-          
-
 
         </div>
       </div>
     </div>
-
+	
+	
+	
     <div class="container-fluid">
       <% flash.each do |name, msg| %>
         <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
@@ -77,35 +89,32 @@
       <% end %>
 
       <div class="row-fluid">
-        <div class="span2">
+        <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-                <% if current_user %>
-                <li><%=link_to "Home", user_path(current_user)%></li>
-                <% end %>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
+              <li class="nav-header"></li>
+
+ 	    
+	    <li class="nav-header">Manage Projects</li>
+		<li><%= link_to "Users", users_path  %></li>
+		<li><%= link_to "Projects", projects_path %></li>
+                <li><%= link_to "Resources", resources_path %></li>
+                <li><%= link_to "Announcements", announcements_path  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
           <%= yield %>
         </div>
-
-
-
       </div><!--/row-->
-      <div class="foot">
 
-        <p>&copy; Company 2012</p>
-
-      </div>
-
-
+      <footer>
+<ul class="nav pull-right">
+        <p>&copy; ProjectBox, CICS530-430, MSS, University of British Columbia 2012</p>
+</ul>
+      </footer>
 
     </div> <!-- /container -->
-
 
     <!-- Le javascript
     ================================================== -->

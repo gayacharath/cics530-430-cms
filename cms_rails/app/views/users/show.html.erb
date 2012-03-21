@@ -1,17 +1,26 @@
 <div class="accordion" id="accordion1">
-<h3> Managed Projects </h3>
+<div class="alert alert-block alert-error fade in">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            <h4 class="alert-heading">Administrator Announcement:</h4>
+            <p>A scheduled server maintennace shutdown will commence at 10:00am - 11:00am, Friday Feb, 17th 			2012.Please be advised there will be no access to ProjectBox resource management services at 			this time. Thanks! </p>
+            <p>
+              <a class="btn btn-danger small" href="#">OK!</a> <a class="btn small" href="#">More</a>
+            </p>
+          </div>
 
+      <h2>Welcome back, <%= current_user.name %> </h2>
+
+<h3> Managed Projects </h3>
 <% if @managed_projects.empty? %>
 
 	<div class="alert alert-block fade in">
             <a class="close" data-dismiss="alert" href="#">×</a>
             <h4 class="alert-heading">No Projects</h4>
-            <p>Some helpful suggestion message</p>
+            <p>You can crete your own project here.</p>
             <p>
               <%= link_to "Create One", new_project_path, :class => "btn" %>
             </p>
           </div>
-
 
 <% else %>
 
@@ -28,7 +37,8 @@
                 	<table>
                 		<tr>
                 			<th>Contributors:</th>
-                			<td><%= mp.users.count %></td>
+                			
+<td><%= mp.users.count %></td>
                 		</tr>
                 		<tr>
                 			<th>Resrources:</th>
@@ -45,8 +55,14 @@
             </div>
 <% end %>
 
+            <p></p>
+            <p>
+              <%= link_to "Create One", new_project_path, :class => "btn" %>
+            </p>
+
 <% end %>
 </div>
+
 
 
 <div class="accordion" id="accordion2">

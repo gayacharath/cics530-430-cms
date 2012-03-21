@@ -13,13 +13,8 @@ describe ProjectsController do
       response.should render_template(:index)
     end
 
-    it 'loads all the projects' do 
-      Project.expects(:all).returns([])
-      get :index
-      assigns(:project).should_not eq([])
-    end
 
-  end 
+ end
 
   describe "show" do
 
@@ -34,10 +29,33 @@ describe ProjectsController do
       get :show, :id => "22"
       response.should render_template(:show)
     end
+	
+    it "finds and assigns the project" do
+      get :show, :id => "22" 
+      assigns(:project).should eq(@project)
+    end
+
+    it 'assigns contributors to project' do
+      @project.expects(:users).returns(@stub)
+      get :show, :id => "22" 
+      assigns(:managed_users).should eq []
+    end
+    
+    it 'assigns resources to project' do
+      @project.expects(:resources).returns(@stub)
+      get :show, :id => "22" 
+      assigns(:managed_resources).should eq []
+    end
+
   end
 
   describe "new" do
-    it "should render new template" do
+    it "creates a new project and assigns is" do
+      get :new
+      assigns(:project).should_not be_nil
+    end
+
+    it "new action should render new template" do
       get :new
       response.should render_template(:new)
     end
