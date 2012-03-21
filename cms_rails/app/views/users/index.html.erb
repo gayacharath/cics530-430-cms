@@ -2,7 +2,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
+      <th></th>
       <th>Full name</th>
       <th>Created at</th>
       <th>Actions</th>
@@ -11,7 +11,8 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.id %></td>
+  	<td><input id="id" name="user[id]" value="",  type="checkbox", class = "check">
+	<td><%=user.id%></td>
         <td><%= link_to user.full_name, user_path(user) %></td>
         <td><%= user.created_at %></td>
         <td>
@@ -23,4 +24,4 @@
   </tbody>
 </table>
 
-<%= link_to 'New', new_user_path, :class => 'btn btn-primary' %>
+

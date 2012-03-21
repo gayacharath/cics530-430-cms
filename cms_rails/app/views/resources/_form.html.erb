@@ -5,6 +5,7 @@
     <%= f.input :name %>
     <%= f.input :description, :as => :text %>
     <%= f.input :file, :as => :file %>
+    <%= f.input :project_id %>
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Cancel', resources_path, :class => 'btn' %>

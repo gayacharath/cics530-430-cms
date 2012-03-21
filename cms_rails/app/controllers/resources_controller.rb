@@ -18,7 +18,7 @@ class ResourcesController < ApplicationController
   def create
     @resource = Resource.new(params[:resource])
     @resource.user = current_user
-    @resource.project = Project.first
+    # @resource.project = Project.first
     if @resource.save
       redirect_to @resource, :notice => "Successfully created resource."
     else

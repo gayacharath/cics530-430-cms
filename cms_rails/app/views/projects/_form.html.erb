@@ -2,11 +2,11 @@
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Project</legend>
     
-    <%= f.input :started_at %>
-    <%= f.input :ending_at %>
+    <%= f.input :started_at,:as => :date, :order => [:month, :year] %>
+    <%= f.input :ending_at,:as => :date, :order => [:month, :year] %>
     <%= f.input :name %>
     <%= f.input :description, :as => 'text' %>
-    <%= f.input :owner_id %>
+   
     
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
