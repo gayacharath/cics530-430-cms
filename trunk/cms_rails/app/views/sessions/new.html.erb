@@ -1,31 +1,37 @@
-<h1>Welcome to ProjectBox.</h1>
-<p> <h4>Find out what&#8217;s happening, right now, with managers and contributors you care about.</h4></p>
 
-<p>
-Don't have an account? <%= link_to "sign up", new_user_path %>
-</p>
 
-<%= form_tag sessions_path do %>
-        <div>
-          <input type="text" class="text-input email-input" name="session[email]" title="Email" autocomplete="on">
-          <span class="placeholder">Email</span>
+
+ <div class="front-welcome">
+
+
+
+  <br><br><br><br><br><br><br><br>
+<div class="front-signin" >
+<%= form_tag sessions_path, :class =>"signin" do %>
+
+      <div class="username">
+          <input type="text" class="text-input" title="Email" autocomplete="on" placeholder="Email">
         </div>
 
-        <table>
+        <table class="flex-table password-signin">
           <tbody>
             <tr>
-                <div >
-                  <input type="password" class="text-input" name="session[password]" title="Password">
-                  <span class="placeholder">Password</span>
+              <td class="flex-table-primary">
+                <div class="password flex-table-form">
+                  <input type="password" class="text-input flex-table-input" name="session[password]" title="Password" placeholder="Password">
                 </div>
-            </tr>
-          <tr>
-             <td>
-                <p class="button"><%= submit_tag "Sign in", :class => 'btn btn-primary' %>
               </td>
-          </tr>
+               <td class ="flex-table-secondary">
+                 <input type="submit" class="button primary-btn" value="Sign in" tabindex="0">
+              </td>
+            </tr>
+
           </tbody>
         </table>
-
+            <div class="sign-up signup_txt">
+          Don't have an account? <%= link_to "sign up", new_user_path %>
+        </div>
 <% end %>
+</div>
 
+      </div>

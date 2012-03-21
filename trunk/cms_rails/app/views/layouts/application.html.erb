@@ -25,7 +25,7 @@
     <link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
   </head>
-  <body>
+  <body class="default-theme">
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -35,7 +35,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">ProjectBox</a>
+
+          <a class="logo" href="#"></a>
+
           <div class="container-fluid nav-collapse">
             <ul class="nav">
                 <li><%= link_to "Users", users_path  %></li>
@@ -75,7 +77,7 @@
       <% end %>
 
       <div class="row-fluid">
-        <div class="span3">
+        <div class="span2">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
@@ -90,13 +92,20 @@
         <div class="span9">
           <%= yield %>
         </div>
-      </div><!--/row-->
 
-      <footer>
+
+
+      </div><!--/row-->
+      <div class="foot">
+
         <p>&copy; Company 2012</p>
-      </footer>
+
+      </div>
+
+
 
     </div> <!-- /container -->
+
 
     <!-- Le javascript
     ================================================== -->
