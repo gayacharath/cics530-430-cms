@@ -8,9 +8,16 @@ ActiveAdmin.register Project do
     column "Start Date", :started_at
     column "End Date", :ending_at
     column "Owner", :owner
-	column "Description", :description
-	column "Created date", :created_at
-	column "Last modified", :updated_at
+    column "Contributors" do |proj|
+      names = ""
+       proj.users.each do |user|
+        names += user.name + " "
+       end
+       names
+     end
+	   column "Description", :description
+	   column "Created date", :created_at
+	 column "Last modified", :updated_at
     default_actions
   end
 end
