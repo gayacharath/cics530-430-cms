@@ -40,53 +40,43 @@
 
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-		 <% if current_user %>
-                <li><%=link_to "Dashboard", user_path(current_user)  %></li>
-         <% end %>
-		 <form class="navbar-search pull-left">
-			<input type="text" class="search-query" placeholder="Search">
-		 </form>
+
+
             </ul>
 
-             <p class="navbar-text pull-right">
-            <% if current_user %>
-	    <ul class="nav pull-right">
+            <p class="navbar-text pull-right">
+                <% if current_user %>
+	                <ul class="nav pull-right">
 
-          <% if current_user.notifications > 0 %>
-            <li class="divider-vertical"></li>
-              <li class="dropdown">
-              
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <% if current_user.notifications > 0 %>
+                            <li class="divider-vertical"></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <% if current_user.notifications > 0 %>
+                                    <i class="icon-white icon-envelope"></i><%= current_user.notifications %></a>
+                                     <ul class="dropdown-menu">
+                                        <li><%= link_to 'Notifications', "/notifications" %></li>
+                                    </ul>
+                                <%end%>
+                            </li>
+                        <%end%>
+                        <li class="divider-vertical"></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-white icon-user"></i><%= current_user.name %></a>
+                            <ul class="dropdown-menu">
+                                <li><%= link_to 'Settings', "/settings" %></li>
+                                <li><%= link_to 'Logout', logout_path %></li>
+                            </ul>
+                        </li>
 
-                <% if current_user.notifications > 0 %>
-                <i class="icon-white icon-envelope"></i>
-
-                    <%= current_user.notifications %></a>
-
-                 <%end%>
-
-              </li>
-               <%end%>
-              <li class="divider-vertical"></li>
-
-                              <li class="dropdown">
-
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="icon-white icon-user"></i><%= current_user.name %></a>
-                    <ul class="dropdown-menu">
-                        <li><%= link_to 'Settings', "/path1" %></li>
-                        <li><%= link_to 'Logout', logout_path %></li>
                     </ul>
 
 
-              </li>
-            </ul>
-          </p>
-	  	
-            <% else %>
-            	Hey Stranger <%= link_to "login", login_path %> or <%= link_to "register", new_user_path %>
-            <% end %>
-
+                <% else %>
+            	    Hey Stranger <%= link_to "login", login_path %> or <%= link_to "register", new_user_path %>
+                <% end %>
+            </p>
 
           </div><!--/.nav-collapse -->
 
@@ -108,14 +98,52 @@
         <div class="span2">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header"></li>
+              <% if current_user %>
+                  <li class="nav-header">Explore</li>
+                  <li>
+                   <%= link_to(  user_path(current_user) ) do %>
+                    <i class="icon-black icon-home"></i>Dashboard
+                    <% end %>
+                  </li>
+                  <li><%= link_to(  "/search" ) do %>
+                    <i class="icon-black icon-search"></i>Search
+                    <% end %>
+                  </li>
+                  <li>
+                   <%= link_to (users_path) do %>
+                    <i class="icon-black icon-user"></i>Members
+                    <% end %>
+                  </li>
+                   <li><%= link_to (projects_path) do %>
+                    <i class="icon-black icon-folder-open"></i>Projects
+                    <% end %>
+                  </li>
+                   <li><%= link_to (resources_path) do %>
+                    <i class="icon-black icon-picture"></i>Resources
+                    <% end %>
+                  </li>
+                   <li><%= link_to ( "/notifications") do %>
+                    <i class="icon-black icon-envelope"></i>Notifications
+                    <% end %>
+                  </li>
+                   <li><%= link_to( "/help" ) do %>
+                    <i class="icon-black icon-plus"></i>Help
+                    <% end %>
+                  </li>
+              <% else %>
+                   <li class="nav-header">Discover</li>
+                  <li>
+                   <%= link_to (users_path) do %>
+                    <i class="icon-black icon-user"></i>About
+                    <% end %>
+                  </li>
+                   <li><%= link_to ("/help") do %>
+                    <i class="icon-black icon-picture"></i>Help
+                    <% end %>
+                  </li>
+                  <%end%>
 
- 	    
-	    <li class="nav-header">Manage Projects</li>
-		<li><%= link_to "Users", users_path  %></li>
-		<li><%= link_to "Projects", projects_path %></li>
-                <li><%= link_to "Resources", resources_path %></li>
-                <li><%= link_to "Announcements", announcements_path  %></li>
+
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
