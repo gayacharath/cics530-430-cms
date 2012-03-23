@@ -2,9 +2,8 @@ class User < ActiveRecord::Base
 	has_many :owned_resources, :foreign_key => :user_id, :class_name => "Resource"
 	has_many :announcements
 	has_many :owned_projects, :foreign_key => :owner_id, :class_name => "Project"
-	has_and_belongs_to_many :projects
-  #has_many :contributions
-  #has_many :projects, :through => :contributions
+  has_many :contributions
+  has_many :projects, :through => :contributions
 
 # validates associated is crashing app, commenting out for now - Matthew
  #  validates_associated :resources, :announcements, :owned_projects, :projects
