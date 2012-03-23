@@ -15,14 +15,17 @@ ActiveAdmin.register User do
   
  # edit do
   
-	#form do |f|
-	#	  f.inputs "Details" do
-	#		f.input :full_name
-	#		f.input :pref_name, :label => "Nick name"
-	#		f.input :email
-	#	  end
-	#	end
+	
 	#end
+
+	form do |f|
+      f.inputs "Details" do
+        f.input :full_name, :label => "Full Name"
+        f.input :pref_name, :label => "Preferred Name"
+        f.input :email
+      end
+      f.buttons
+    end
   
   
   action_item :only => :edit do
