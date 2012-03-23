@@ -30,5 +30,9 @@ class User < ActiveRecord::Base
     pref_name || full_name
   end
 
+  def notifications
+    return 6
+  end
+
 
 end
