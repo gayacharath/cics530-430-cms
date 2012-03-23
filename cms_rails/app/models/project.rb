@@ -2,6 +2,8 @@ class Project < ActiveRecord::Base
 	has_many :resources
 	belongs_to :owner, :foreign_key => :owner_id, :class_name => "User"
 	has_and_belongs_to_many :users # contributors
+	#has_many :contributions
+  	#has_many :users, :through => :contributions
 
 
 	# validates associated is crashing app, commenting out for now - Matthew
