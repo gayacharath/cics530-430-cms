@@ -1,16 +1,13 @@
 
 
 
- <div class="front-welcome">
+ <div class="front-welcome"></div>
 
-
-
-  <br><br><br><br><br><br><br><br>
 <div class="front-signin" >
 <%= form_tag sessions_path, :class =>"signin" do %>
 
       <div class="username">
-          <input type="text" class="text-input" title="Email" autocomplete="on" placeholder="Email">
+          <input type="text" class="text-input" title="Email" autocomplete="on" name="email" placeholder="Email">
         </div>
 
         <table class="flex-table password-signin">
@@ -18,7 +15,7 @@
             <tr>
               <td class="flex-table-primary">
                 <div class="password flex-table-form">
-                  <input type="password" class="text-input flex-table-input" name="session[password]" title="Password" placeholder="Password">
+                  <input type="password" class="text-input flex-table-input" name="password" title="Password" placeholder="Password">
                 </div>
               </td>
                <td class ="flex-table-secondary">
@@ -34,4 +31,4 @@
 <% end %>
 </div>
 
-      </div>
+      

@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @managed_projects = @user.owned_projects.all
     @contrib_projects = @user.projects.all
+    
   end
 
   def new
