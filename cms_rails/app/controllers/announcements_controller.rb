@@ -1,43 +1,45 @@
 class AnnouncementsController < ApplicationController
   before_filter :is_logged_in
+
+  respond_to :html, :xml, :json
   
   def index
     @announcements = Announcement.all
+    respond_with @announcements
   end
 
   def show
     @announcement = Announcement.find(params[:id])
+    respond_with @announcement
   end
 
   def new
     @announcement = Announcement.new
+    respond_with @announcement
   end
 
   def create
     @announcement = Announcement.new(params[:announcement])
-    if @announcement.save
-      redirect_to @announcement, :notice => "Successfully created announcement."
-    else
-      render :action => 'new'
-    end
+    @announcement.save
+    flash[:notice] = "Successfully created announcement." if @announcement.valid?
+    respond_with @announcement
   end
 
   def edit
     @announcement = Announcement.find(params[:id])
+    respond_with @announcement
   end
 
   def update
     @announcement = Announcement.find(params[:id])
-    if @announcement.update_attributes(params[:announcement])
-      redirect_to @announcement, :notice  => "Successfully updated announcement."
-    else
-      render :action => 'edit'
-    end
+    @announcement.update_attributes(params[:announcement])
+    flash[:notice]  = "Successfully updated announcement." if @announcement.valid?
+    respond_with @announcement
   end
 
   def destroy
     @announcement = Announcement.find(params[:id])
     @announcement.destroy
-    redirect_to announcements_url, :notice => "Successfully destroyed announcement."
+    respond_with @announcement
   end
 end

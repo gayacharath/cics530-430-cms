@@ -1,5 +1,7 @@
 class AdminsController < ApplicationController
 
+  respond_to :html, :xml, :json
+
 	def change
     @user = User.find(params[:id])
 	

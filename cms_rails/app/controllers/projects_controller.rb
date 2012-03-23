@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   respond_to :html, :xml, :json
 
   def index
-    @project = Project.all
+    @projects = Project.all
   end
 
   def show
