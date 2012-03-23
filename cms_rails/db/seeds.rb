@@ -31,18 +31,14 @@ Resource.delete_all
 		p.save
 
 		
-		5.times do
-			temp  = User.create(	
-				:full_name 	=> Faker::Name.name,
-				:pref_name 	=> Faker::Name.first_name,
-				:email		=> Faker::Internet.email,
-				:admin		=> false,
-				:password	=> "password",
-				:password_confirmation => "password"
-			)
+		c=Contribution.new(
+			:status		=>0
+
+		)
+		c.user=u
+		c.project=p
+		c.save
 			
-			p.users << temp
-		end	
 	
 		a = Announcement.new
 		a.topic = Faker::Company.name
