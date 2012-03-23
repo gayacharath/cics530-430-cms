@@ -1,18 +1,19 @@
-<h1>Projects</h1>
-<%= link_to 'Add', new_project_path, :class => 'btn btn-primary' %>
+<h1>My Projects</h1>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Contributors</th>
-      <th>Owner</th>
-      <th>Created at</th>
+      <th>Members</th>
+      <th>Manager</th>
+      <th>Created</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
 
 <% @projects.each do |project| %>
+
+       <% if can? :manage, project %>
       <tr>
         <td><%= link_to project.name, project_path(project) %></td>
         <td><%= project.users.count %></td>
@@ -22,14 +23,19 @@
         <td>
           <% if can? :edit, project %>
             <%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-mini' %>
+          <%else%>
+            <%= link_to 'Join',  "#", :class => 'btn btn-mini' %>
+            <%= link_to 'Quit', "#", :class => 'btn btn-mini' %>
           <% end %>
 
           <% if can? :destroy, project %>
-            <%= link_to 'Destroy', project_path(project), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+            <%= link_to 'Delete', project_path(project), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
           <% end %>
         </td>
       </tr>
-    <% end %>
+   <%end%>
+    <%end%>
+
 
   </tbody>
 </table>
