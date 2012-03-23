@@ -2,8 +2,8 @@
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Project</legend>
     
-    <%= f.input :started_at,:as => :date, :order => [:month, :year] %>
-    <%= f.input :ending_at,:as => :date, :order => [:month, :year] %>
+    <%= f.input :started_at, :as => :date, :order => [:month, :year] %>
+    <%= f.input :ending_at, :as => :date, :order => [:month, :year] %>
     <%= f.input :name %>
     <%= f.input :description, :as => 'text' %>
    

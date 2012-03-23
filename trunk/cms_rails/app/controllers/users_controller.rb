@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
   
   before_filter :is_logged_in, :except => [:new, :create] 
+
+  respond_to :html, :xml, :json
+
   def index
     @users = User.all
+    respond_with @users
   end
 
   def show
@@ -32,6 +36,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    respond_with @user
   end
   
   

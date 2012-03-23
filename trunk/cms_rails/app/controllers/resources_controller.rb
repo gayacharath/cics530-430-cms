@@ -1,9 +1,10 @@
 class ResourcesController < ApplicationController
   
   before_filter :is_logged_in
+  respond_to :html, :xml, :json
 
   def index
-    @resource = Resource.all
+    @resources = Resource.all
   end
 
   def show

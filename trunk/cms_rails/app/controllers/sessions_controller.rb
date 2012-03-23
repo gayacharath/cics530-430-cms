@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  respond_to :html, :xml, :json
+
   def new
     if current_user
       redirect_to user_path(current_user), :alert => "You are already logged in"
