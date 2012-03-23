@@ -33,6 +33,5 @@ class User < ActiveRecord::Base
   def notifications
     return 20;
   end
-  
-  end
+
 end
