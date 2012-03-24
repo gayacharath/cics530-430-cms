@@ -1,6 +1,24 @@
 <h1><%= @project.name %></h1>
 
-<h3>Owner: <%= @project.owner_id %></h3><br>
+<h3>Owner: <%=current_user.name  %></h3><br>
+
+<div class="accordion" id="accordion1">
+<div class="alert alert-block alert-error fade in">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            <h4 class="alert-heading">Project Announcement:</h4>
+   <div class="alert alert-block fade in">
+	<table>
+	<tr>
+	<td>Project meeting scheduled on 03/27/12 at 3.30pm in ICICS Room 208. Rememeber to bring your deliverables. Meet you on 	Tuesday!</br>
+	<b>Posted on:</b>03/23/2012</td>
+	</tr>
+	</table>
+   </div>
+	    <p>
+              <%= link_to "Create One", new_announcement_path, :class => "btn" %>
+            </p>
+</div>
+</div>
 
 <p>
   <b>Description</b><br>
