@@ -53,7 +53,8 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <% if current_user.notifications > 0 %>
-                                    <i class="icon-white icon-envelope"></i><%= current_user.notifications %></a>
+                                    <i class="icon-white icon-envelope"></i>
+					<%= current_user.notifications %></a>
                                      <ul class="dropdown-menu">
                                         <li><%= link_to 'Notifications', "/notifications" %></li>
                                     </ul>
@@ -65,8 +66,14 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-white icon-user"></i><%= current_user.name %></a>
                             <ul class="dropdown-menu">
-                                <li><%= link_to 'Settings', "/settings" %></li>
-                                <li><%= link_to 'Logout', logout_path %></li>
+
+                                <li><%= link_to (edit_user_path(current_user)) do %>
+				<i class=" icon-black icon-cog"></i>Settings<%end%>
+				</li>
+
+                                <li><%= link_to (logout_path) do %>
+				<i class=" icon-black icon-off"></i>Logout <%end%>
+				</li>
                             </ul>
                         </li>
 
@@ -74,7 +81,7 @@
 
 
                 <% else %>
-            	    Hey Stranger <%= link_to "login", login_path %> or <%= link_to "register", new_user_path %>
+          	    Hey Stranger <%= link_to "login", login_path %> or <%= link_to "register", new_user_path %>
                 <% end %>
             </p>
 
@@ -152,7 +159,7 @@
         </div>
       </div><!--/row-->
 
-      <footer class='clearfix'>
+      <footer class='clearfix'> 
         <p>&copy; ProjectBox, CICS530-430, MSS, University of British Columbia 2012</p>
       </footer>
 
