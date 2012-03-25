@@ -5,7 +5,11 @@ class ProjectsController < ApplicationController
   respond_to :html, :xml, :json
 
   def index
-    @projects = Project.all
+    if(params[:search])
+      @projects = Project.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+    else
+      @projects = Project.all
+    end
   end
 
   def show

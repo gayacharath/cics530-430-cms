@@ -1,4 +1,10 @@
 <h1>My Projects</h1>
+<div>
+	<form method="get" action="">
+		<input type="text" name="search">
+		<input type="submit" value="Find">
+	</form>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -10,31 +16,31 @@
     </tr>
   </thead>
   <tbody>
-
-<% @projects.each do |project| %>
-
-       <% if can? :manage, project %>
-      <tr>
-        <td><%= link_to project.name, project_path(project) %></td>
-        <td><%= project.users.count %></td>
-        <td><%= link_to project.owner.full_name, user_path(project.owner) %></td>
-        <td><%= project.created_at.to_s(:slash_time) %></td>
-
-        <td>
-          <% if can? :edit, project %>
-            <%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-mini' %>
-          <%else%>
-            <%= link_to 'Join',  "#", :class => 'btn btn-mini' %>
-            <%= link_to 'Quit', "#", :class => 'btn btn-mini' %>
-          <% end %>
-
-          <% if can? :destroy, project %>
-            <%= link_to 'Delete', project_path(project), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-          <% end %>
-        </td>
-      </tr>
-   <%end%>
-    <%end%>
+	<% if !@projects.nil? %>
+		<% @projects.each do |project| %>
+	       <% if can? :manage, project %>
+		      <tr>
+		        <td><%= link_to project.name, project_path(project) %></td>
+		        <td><%= project.users.count %></td>
+		        <td><%= link_to project.owner.full_name, user_path(project.owner) %></td>
+		        <td><%= project.created_at.to_s(:slash_time) %></td>
+		
+		        <td>
+		          <% if can? :edit, project %>
+		            <%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-mini' %>
+		          <%else%>
+		            <%= link_to 'Join',  "#", :class => 'btn btn-mini' %>
+		            <%= link_to 'Quit', "#", :class => 'btn btn-mini' %>
+		          <% end %>
+		
+		          <% if can? :destroy, project %>
+		            <%= link_to 'Delete', project_path(project), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+		          <% end %>
+		        </td>
+		      </tr>
+		   <%end%>
+		<%end%>
+	<% end %>
 
 
   </tbody>
