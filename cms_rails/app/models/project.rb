@@ -16,6 +16,12 @@ class Project < ActiveRecord::Base
 	validates_format_of :name, :with => /^[\sa-zA-Z0-9_-]{3,}$/i
 	validates_uniqueness_of :name, :case_sensitive => false
 	
+	def contributor? user
+		!(self.contributions.where("user_id = ? AND status = ?", user.id, 0).empty?)
+	end
 
+	def pending_contributor? user
+		!(self.contributions.where("user_id = ? AND status > ?", user.id, 0).empty?)
+	end
 
 end

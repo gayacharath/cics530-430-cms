@@ -22,6 +22,8 @@ CmsRails::Application.routes.draw do
   match 'admin/users/:id/destroy_admin' => "admins#destroy", :as => :remove_admin, :via => :get
   
   match 'admin/users/:id/change' => "admins#change", :as => :change, :via => :get
+
+  match 'contributions/create/:project_id/:user_id' => "contributions#create", :as => :join_project, :via => :get
   
 
   root :to => 'sessions#new'

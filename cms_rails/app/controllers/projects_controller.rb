@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
     if(params[:search])
       @projects = Project.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
     else
-      @projects = Project.all
+      @projects = nil
     end
   end
 
