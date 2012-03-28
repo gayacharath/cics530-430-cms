@@ -2,9 +2,10 @@ class ResourcesController < ApplicationController
   
   before_filter :is_logged_in
   respond_to :html, :xml, :json
+  before_filter :find_project, :only => [:index, :new, :create]
 
   def index
-    @resources = Resource.all
+    @resources = @project.resources.all
   end
 
   def show
@@ -13,15 +14,15 @@ class ResourcesController < ApplicationController
   end
 
   def new
-    @resource = Resource.new
+    @resource = @project.resources.build
   end
 
   def create
-    @resource = Resource.new(params[:resource])
+    @resource = @project.resources.build(params[:resource])
     @resource.user = current_user
     # @resource.project = Project.first
     if @resource.save
-      redirect_to @resource, :notice => "Successfully created resource."
+      redirect_to @project, :notice => "Successfully created resource."
     else
       render :action => 'new'
     end
@@ -45,4 +46,11 @@ class ResourcesController < ApplicationController
     @resource.destroy
     redirect_to resources_url, :notice => "Successfully destroyed resource."
   end
+
+  private
+
+  def find_project
+    @project = Project.find(params[:project_id])
+  end
+
 end
