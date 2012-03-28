@@ -24,7 +24,7 @@
 
 <% @managed_projects.each do |mp| %>
 <div class="accordion-group">
-              <div class="accordion-heading">
+              <div class="accordion-heading project-listing-header">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#managedCollapse<%= mp.id %>">
                  <%= mp.name %>
                 </a>
@@ -34,8 +34,7 @@
                 	<table>
                 		<tr>
                 			<th>Contributors:</th>
-                			
-<td><%= mp.users.count %></td>
+                            <td><%= mp.users.count %></td>
                 		</tr>
                 		<tr>
                 			<th>Resources:</th>
@@ -81,7 +80,7 @@
 
 <% @contrib_projects.each do |mp| %>
 <div class="accordion-group">
-              <div class="accordion-heading">
+              <div class="accordion-heading project-listing-header">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#managedCollapse<%= mp.id %>">
                  <%= mp.name %>
                 </a>
