@@ -19,8 +19,8 @@ class ResourcesController < ApplicationController
 
   def create
     @resource = @project.resources.build(params[:resource])
+    @resource.version = 1
     @resource.user = current_user
-    # @resource.project = Project.first
     if @resource.save
       redirect_to @project, :notice => "Successfully created resource."
     else
@@ -35,6 +35,8 @@ class ResourcesController < ApplicationController
   def update
     @resource = Resource.find(params[:id])
     if @resource.update_attributes(params[:resource])
+      @resource.version += 1
+      @resource.save!
       redirect_to @resource, :notice  => "Successfully updated resource."
     else
       render :action => 'edit'

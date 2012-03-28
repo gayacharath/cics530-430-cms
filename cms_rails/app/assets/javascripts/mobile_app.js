@@ -5,16 +5,11 @@
 // the compiled file.
 //
 //= require jquery
-//= require jquery_ujs
-//= require bootstrap-transition
-//= require bootstrap-alert
-//= require bootstrap-modal
-//= require bootstrap-dropdown
-//= require bootstrap-scrollspy
-//= require bootstrap-tab
-//= require bootstrap-tooltip
-//= require bootstrap-popover
-//= require bootstrap-button
-//= require bootstrap-collapse
-//= require bootstrap-carousel
-//= require bootstrap-typeahead
+//= require underscore
+//= require backbone
+//= require .//cms_rails
+//= require_tree ../templates/
+//= require_tree .//models
+//= require_tree .//collections
+//= require_tree .//views
+//= require_tree .//routers

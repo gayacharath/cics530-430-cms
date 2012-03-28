@@ -26,6 +26,8 @@ CmsRails::Application.routes.draw do
   match 'admin/users/:id/change' => "admins#change", :as => :change, :via => :get
 
   match 'contributions/create/:project_id/:user_id' => "contributions#create", :as => :join_project, :via => :get
+
+  match 'mobile' => "mobile#index"
   
 
   root :to => 'sessions#new'
