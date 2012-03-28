@@ -67,3 +67,6 @@ gem 'simple_form'
 
 # added for Authentication by Srikanth
 gem "bcrypt-ruby", :require => "bcrypt"
+
+# gemfile aded by gaya
+gem 'rabl'
