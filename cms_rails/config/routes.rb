@@ -7,9 +7,11 @@ CmsRails::Application.routes.draw do
 
   resources :announcements
 
-  resources :projects
+  resources :projects do
+    resources :resources, :shallow => true
+  end
 
-  resources :resources
+  
   
   resources :sessions
   
