@@ -45,6 +45,7 @@ Resource.delete_all
 		a.content = Faker::Company.bs
 		a.kind = "project announcement"
 		a.user = u
+		a.project = p
 		a.save
 		
 		if p		
