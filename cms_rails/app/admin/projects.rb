@@ -1,13 +1,13 @@
 ActiveAdmin.register Project do
 	sidebar "Resources for current project", :only =>:show do
 		table_for Resource.where(:project_id => self.project) do |t|
-			t.column("Resource") { |resource| link_to resource.name, admin_resource_path(resource) }
+			t.column("Resources") { |resource| link_to resource.name, admin_resource_path(resource) }
 		end	
 	end
 	
 	sidebar "Contributors for current project", :only =>:show do
 		table_for self.project.users do |t|
-			t.column("Contributor") { |user| link_to user.full_name, admin_user_path(user) }
+			t.column("Contributors") { |user| link_to user.full_name, admin_user_path(user) }
 		end	
 	end
 	
