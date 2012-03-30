@@ -65,5 +65,16 @@ Resource.delete_all
 	end
 end
 
+admin = User.new(	
+			:full_name 	=> "admin admin",
+			:pref_name 	=> "admin",
+			:email		=> "admin@gmail.com",
+			:admin		=> true,
+			:password	=> "admin",
+			:password_confirmation => "admin"
+		)
+admin.admin = true
+admin.save
+
 
 	
