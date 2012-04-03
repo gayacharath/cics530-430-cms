@@ -114,7 +114,7 @@
         <td><%= pr.version %></td>
         <td>
           <% if pr.file.url %>
-          <%= link_to "Download", pr.file.url, :class => "btn btn-mini" %>
+          <%= link_to "Download", pr.file.url, :class => "btn btn-mini btn-success" %>
           <% end %>
           <%= link_to "Replace", edit_resource_path(pr), :class => "btn btn-mini btn-danger" %>
         </td>
@@ -131,7 +131,7 @@
 
 <div class="form-actions">
   <%= link_to 'Back', user_path(@project.owner_id), :class => 'btn btn-primary'  %>
-  <%= link_to 'Edit', edit_project_path(@project), :class => 'btn btn-primary' %>
+  <%= link_to 'Edit', edit_project_path(@project), :class => 'btn btn-create' %>
   <%= link_to 'Delete', project_path(@project), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>
 
