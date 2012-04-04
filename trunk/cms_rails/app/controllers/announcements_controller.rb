@@ -4,23 +4,21 @@ class AnnouncementsController < ApplicationController
   respond_to :html, :xml, :json
   
   def index
-    @announcements = Announcement.all
-    respond_with @announcements
+    @resources = @project.announcements.all
   end
 
   def show
-    @announcement = Announcement.find(params[:id])
-    respond_with @announcement
+    @announcement = Announcement.find(params[:id])   
   end
 
   def new
     @announcement = Announcement.new
-    respond_with @announcement
   end
 
   def create
     @announcement = Announcement.new(params[:announcement])
     @announcement.save
+    @announcement.user = current_user
     flash[:notice] = "Successfully created announcement." if @announcement.valid?
     respond_with @announcement
   end
