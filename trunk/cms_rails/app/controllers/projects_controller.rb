@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @managed_users = @project.users.all
     @managed_resources = @project.resources.all
-    @managed_announcements=@project.announcements.all
+    @project_announcements = @project.announcements.all
   end
 
   def new

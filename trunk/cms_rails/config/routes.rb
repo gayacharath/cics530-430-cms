@@ -5,14 +5,13 @@ CmsRails::Application.routes.draw do
 
   resources :staffs
 
-  resources :announcements
-
   resources :projects do
     resources :resources, :shallow => true
+    resources :announcements, :shallow => true
   end
 
-  
-  
+
+
   resources :sessions
   
   resources :users
