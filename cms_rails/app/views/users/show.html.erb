@@ -5,11 +5,17 @@
 <h2>Welcome back, <%= current_user.name %> </h2>
 
 
+
+
 <div class="alert alert-block alert-error fade in">
             <a class="close" data-dismiss="alert" href="#">×</a>
-            <h4 class="alert-heading">Administrator Announcement:</h4>
-            <p>A scheduled server maintenance shutdown will commence at 10:00am - 11:00am, Friday Feb, 17th
-              2012.Please be advised there will be no access to ProjectBox resource management services at this time. Thanks! </p>
+            <h4 class="alert-heading">Administrative Announcement: <%=@admin_latest.topic%></h4>
+     <div class="alert alert-block fade in">
+          <p><%= @admin_latest.content %></p>
+	    <p><%= @admin_latest.created_at%></p>
+   </div>
+
+
 </div>
 
 

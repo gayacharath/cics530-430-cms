@@ -1,10 +1,10 @@
 class AnnouncementsController < ApplicationController
   before_filter :is_logged_in
-
   respond_to :html, :xml, :json
+  before_filter :find_project, :only => [:index, :new, :create]
   
   def index
-    @resources = @project.announcements.all
+    @announcements = @project.announcements.all
   end
 
   def show
@@ -12,16 +12,21 @@ class AnnouncementsController < ApplicationController
   end
 
   def new
-    @announcement = Announcement.new
+    @announcement = @project.announcements.build
   end
 
+
   def create
-    @announcement = Announcement.new(params[:announcement])
-    @announcement.save
+    @announcement = @project.announcements.build(params[:announcement])
     @announcement.user = current_user
-    flash[:notice] = "Successfully created announcement." if @announcement.valid?
-    respond_with @announcement
+    if @announcement.save
+      redirect_to @project, :notice => "Successfully created announcement."
+    else
+      render :action => 'new'
+    end
   end
+
+
 
   def edit
     @announcement = Announcement.find(params[:id])
@@ -40,4 +45,10 @@ class AnnouncementsController < ApplicationController
     @announcement.destroy
     respond_with @announcement
   end
+
+  def find_project
+    @project = Project.find(params[:project_id])
+  end
+
+
 end
