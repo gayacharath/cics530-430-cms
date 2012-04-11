@@ -15,6 +15,7 @@ CmsRails::Application.routes.draw do
   resources :sessions
   
   resources :users
+  resources :password_resets
   
   match 'login' => 'sessions#new', :as => :login
   match 'logout' => 'sessions#destroy', :as => :logout

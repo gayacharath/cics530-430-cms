@@ -12,11 +12,27 @@ class Resource < ActiveRecord::Base
 #	validates_format_of :name, :with => /^[a-zA-Z0-9_-]{3,}[\.]{0,}[a-zA-Z0-9_-]{0,}$/i
 #	validates_length_of :description, :minimum => 4, :maximum => 256
 
+	before_save :update_asset_attributes
 
 	mount_uploader :file, ResourceUploader
 
 	def file_name
 		File.basename(self.file.url) if self.file
 	end
+
+	def image_attached?
+		self.mime.try :include?, 'image'
+	end
+
+
+
+	  private
+
+	  def update_asset_attributes
+	    if file.present? && file_changed?
+	      self.mime = file.file.content_type
+	      #self.file_size = file.file.size
+	    end
+	  end
 
 end
