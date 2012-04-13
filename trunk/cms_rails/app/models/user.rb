@@ -35,6 +35,11 @@
     return Contribution.where("status > 0").count
     #return 10
   end
+  
+  def adminuser
+    return user.where(:admin => true)
+    #return 10
+  end
 
   def send_password_reset
     generate_token(:password_reset_token)
