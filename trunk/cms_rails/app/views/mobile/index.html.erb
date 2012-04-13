@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
     <title>ProjectBox Mobile</title>
     <%= javascript_include_tag "mobile_app" %>
   </head>
@@ -16,8 +18,17 @@
 	</form>
 	</div>	
 	
-	<div id="projectsDiv">
-	</div>
+	<ul id="projectsDiv" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+		
+	</ul>
+  
+  	<div id="uploadDiv">
+  		<button onclick="capturePhoto();">Capture Photo</button> <br>
+    	<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+    	<button onclick="upload();">Upload</button> <br>
+    	<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+    	<img style="display:none;width:60px;height:60px;" id="largeImage" src="" />
+  	</div>
   
   </body>
 </html>
