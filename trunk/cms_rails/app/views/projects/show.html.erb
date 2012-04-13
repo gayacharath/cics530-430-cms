@@ -5,39 +5,54 @@
 <div class="accordion project-view-title" id="accordion1">
 
 <h1><%= @project.name %></h1>
-<h3>Managed by: <%=current_user.name  %></h3>
+<p><h4>"<%=@project.description%>"</h4>  </p>
+
+  </div>
+
+<div class="accordion project-view-title" id="accordion11">
+
 
 <% if @project_announcements.empty? %>
          <p>You currently have no announcements.</p>
 
 <%else%>
-<% @project_announcements.each do |pa| %>
+      <h3>Project Announcements</h3>
 
+<div class="accordion-group ">
+
+  <div class="accordion-heading project-listing-header">
+    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#managedCollapse0">
+     Show/Hide <%= @project_announcements.count %>  Announcements
+    </a>
+  </div>
+
+  <div id="managedCollapse0" class="accordion-body collapse dash-bg" style="height: 0px; ">
+
+<% @project_announcements.each do |pa| %>
 <div class="alert alert-block alert-error fade in">
             <a class="close" data-dismiss="alert" href="#">×</a>
-            <h4 class="alert-heading"><%= pa.topic %></h4>
-     <div class="alert alert-block fade in">
-          <p><%= pa.content %></p>
-	    <p><%= pa.created_at%></p>
-   </div>
+        <h4 class="alert-heading">Topic: <%= pa.topic%></h4>
+      <div class="alert alert-block fade in announcement_border">
+        <p><%= pa.content %></p>
+      </div>
+      <h7>Created: <%= pa.created_at%></h7>
 </div>
 <%end%>
+
+  </div>
+</div>
 <%end%>
 <p>
    <%= link_to "Create Announcement", new_project_announcement_path(@project), :class => "btn btn-create" %>
 </p>
+</div>
 
 
-
- </div>
-
-
-
-<div class="project-dash-header">
+<div class="accordion project-view-title" >
 
 <p>
-  <b>Description</b><br>
-  <%= @project.description %>
+  <h4>Managed by: <%=current_user.name  %></h4>
+
 </p>
 
 <p>
@@ -47,11 +62,10 @@
 </p>
 
 <b> Contributing Members: </b>
-
 <% if @managed_users.empty? %>
 
 	<div class="alert alert-block fade in">
-            
+
             <h4 class="alert-heading">No contributors found!</h4>
             <p>Why not invite some members from your online social network?</p>
             <p>
@@ -72,7 +86,7 @@
               <div id="managedCollapse<%= pc.id %>" class="accordion-body collapse" style="height: 0px; ">
                 <div class="accordion-inner">
                       	<%= pc.email %>
-                
+
                 </div>
               </div>
             </div>
@@ -80,6 +94,16 @@
 <%= link_to "Add contributors", users_path, :class => "btn btn-create" %>
 <% end %>
 
+
+
+
+</div>
+
+
+
+
+
+  <div class="project-view-title">
 
 
 <p></p>
@@ -137,13 +161,15 @@
   <%= link_to "Add Resources", new_project_resource_path(@project), :class => "btn btn-create" %>
 <% end %>
 
+    </div>
 
 
 
-<div class="form-actions">
+
+<div class="form-actions project-view-title">
   <%= link_to 'Back', user_path(@project.owner_id), :class => 'btn btn-primary'  %>
   <%= link_to 'Edit', edit_project_path(@project), :class => 'btn btn-create' %>
   <%= link_to 'Delete', project_path(@project), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>
 </div>
-</div>
+
