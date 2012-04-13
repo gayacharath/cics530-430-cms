@@ -7,6 +7,7 @@ window.CmsRails = {
   	}
  }
 
+		//Login View code Begin
 		var LoginModel = Backbone.Model.extend({
 			url:"/sessions.json"			
 		});
@@ -50,7 +51,9 @@ window.CmsRails = {
 				alert("invalid user name or password");
 			}
 		});
-
+		//Login View code End	
+			
+			//Project View code Begin
 			var Project = Backbone.Model.extend({
 							
 			});
@@ -61,17 +64,24 @@ window.CmsRails = {
 			});
 			
 			var ProjectView = Backbone.View.extend({
-				tagName: "div",
-				
+				tagName: "li",
+				attributes: {},
 				render: function() {
-					this.$el.html(this.model.get("name"));
+					//this.$el.html(this.model.get("name"));
+					a = $("<a />");
+					a.text(this.model.get("name"));
+					a.attr ('href', "#");
+					this.$el.html(a);
 					return this;
 				}
 			});
 		
 			var ProjectsView = Backbone.View.extend({
 			el: "#projectsDiv",
-			
+			//tagName: 'ul',
+        	//id: 'projects-list',
+        	//attributes: {"data-role": 'listview'},
+        
 			initialize: function() {
 				this.collection.on("reset", this.render, this);
 			},
@@ -90,6 +100,37 @@ window.CmsRails = {
 				return this;
 			}
 		});
+		//Project View code End
+		
+		//Camera code Begin
+		var pictureSource;   
+	    var destinationType;  
+		document.addEventListener("deviceready",onDeviceReady,false);
+	
+	    function onDeviceReady() {
+	        pictureSource=navigator.camera.PictureSourceType;
+	        destinationType=navigator.camera.DestinationType;
+	    }
+	    function onPhotoURISuccess(imageURI) {
+	      var largeImage = document.getElementById('largeImage');
+	      largeImage.style.display = 'block';
+	      largeImage.src = imageURI;
+	    }
+	
+	    function capturePhoto() {
+	      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, destinationType : Camera.DestinationType.DATA_URL });
+	    }
+	
+	    function getPhoto(source) {
+	      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+	        destinationType: destinationType.FILE_URI,
+	        sourceType: source });
+	    }
+	
+	    function onFail(message) {
+	      alert('Failed because: ' + message);
+	    }
+		//Camera code End
 		
 $(function() {
 	CmsRails.init();
