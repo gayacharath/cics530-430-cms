@@ -19,7 +19,10 @@ class Resource < ActiveRecord::Base
 	def file_name
 		File.basename(self.file.url) if self.file
 	end
-
+	
+	def admin_announce?
+		
+	end
 	def image_attached?
 		self.mime.try :include?, 'image'
 	end
