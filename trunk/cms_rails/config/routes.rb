@@ -29,6 +29,7 @@ CmsRails::Application.routes.draw do
   match 'contributions/create/:project_id/:user_id' => "contributions#create", :as => :join_project, :via => :get
 
   match 'mobile' => "mobile#index"
+  match 'current_projects' => "my_projects#index"
   
 
   root :to => 'sessions#new'

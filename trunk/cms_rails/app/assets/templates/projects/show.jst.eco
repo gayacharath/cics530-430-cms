@@ -5,7 +5,7 @@
 
 <div data-role="content">	
 	<div id="photo-div">
-		<button onclick="capturePhoto();">Capture Photo</button> <br>
-		<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Photo</button> <br>
+		<button id='capturePhoto'>Capture Photo</button> <br>
+		<button id='uploadPhoto'>Upload Photo</button> <br>
 	</div>	
 </div>
