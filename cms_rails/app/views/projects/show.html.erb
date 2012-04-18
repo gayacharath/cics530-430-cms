@@ -2,6 +2,7 @@
 <div id="projects" data-projects="<%= render(template: "projects/index.json.rabl") %>" >
 
 
+
 <div class="accordion project-view-title" id="accordion1">
 
 <h1><%= @project.name %></h1>
@@ -22,7 +23,7 @@
 <div class="accordion-group ">
 
   <div class="accordion-heading project-listing-header">
-    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#managedCollapse0">
+    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#managedCollapse0">
      Show/Hide <%= @project_announcements.count %>  Announcements
     </a>
   </div>
