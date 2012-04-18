@@ -13,6 +13,11 @@ CmsRails.Views.ProjectLi = Backbone.View.extend({
 	}
 });
 
+
+
+
+
+
 CmsRails.Views.ProjectView = Backbone.View.extend({
 
 	template: JST['projects/show'],
@@ -28,6 +33,41 @@ CmsRails.Views.ProjectView = Backbone.View.extend({
 		"vclick #back_btn": function(e) {
 			e.preventDefault();
 			window.app.navigate("projects", {trigger: true});
+		},
+
+		"vclick #uploadPhoto": function(e) {	
+			var that = this;
+			navigator.camera.getPicture(function() {
+				that.uploadSuccess();
+			}, function() {
+				that.uploadFail();
+			}, { quality: 50, 
+	        destinationType: destinationType.FILE_URI,
+	        sourceType: pictureSource.PHOTOLIBRARY });
+		},
+
+		"vclick #capturePhoto": function(e) {
+			var that = this;
+			navigator.camera.getPicture(function() {
+				that.cameraSuccess()
+			}, function() {
+				that.uploadFail();
+			}, { 
+				quality: 50, 
+				destinationType : Camera.DestinationType.DATA_URL 
+			});
+		},
+
+		uploadFail: function() {
+			alert("fail");
+		},
+
+		uploadSuccess: function() {
+			alert("win");
+		},
+
+		cameraSuccess: function() {
+			alert("camera win");	
 		}
 	}
 });
