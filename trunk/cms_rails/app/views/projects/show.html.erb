@@ -188,13 +188,14 @@
         <td><%= pr.version %></td>
         <td>
           <% if pr.file.url %>
-          <%= link_to "Download", pr.file.url, :class => "btn btn-mini btn-success" %>
-          <% end %>
+          <%= link_to "Get", pr.file.url, :class => "btn btn-mini btn-success" %>
+          <% else %>
+                Path not found
+              <%end%>
 
-          <%if pr.user_id == current_user.id%>
-          <%= link_to "Replace", edit_resource_path(pr), :class => "btn btn-mini btn-create" %>
+          <%if pr.user_id == current_user.id || current_user == @project.owner%>
+          <%= link_to "Edit", edit_resource_path(pr), :class => "btn btn-mini btn-create" %>
           <%= link_to "Delete", edit_resource_path(pr), :class => "btn btn-mini btn-danger" %>
-
           <%end%>
         </td>
     </tr>
