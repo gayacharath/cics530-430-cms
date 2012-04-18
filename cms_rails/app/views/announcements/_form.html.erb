@@ -4,7 +4,7 @@
 
 
     <%= f.input :topic %>
-    <%= f.input :content, :as => 'text' %>
+    <div class="control-group text required"><label class="text required control-label" for="announcement_content"><abbr title="required">*</abbr> Content</label><div class="controls"><textarea class="text required" cols="40" id="announcement_content" name="announcement[content]" rows="10"></textarea></div></div>
     <%= f.input :kind%>
 
     <div class="form-actions">
