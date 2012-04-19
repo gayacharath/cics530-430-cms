@@ -37,10 +37,32 @@ CmsRails.Views.ProjectView = Backbone.View.extend({
 
 		"vclick #uploadPhoto": function(e) {	
 			var that = this;
-			navigator.camera.getPicture(function() {
-				that.uploadSuccess();
+			
+			navigator.camera.getPicture(function(imageURI) {
+							var options = new FileUploadOptions();
+				            options.fileKey="file";
+				            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+				            options.mimeType="image/jpeg";
+				
+				            var params = new Object();
+				            params.name = options.fileName;
+				            params.description = "description";
+							params.commit = "Create Resource";
+							params.project_id = that.model.id;
+							var resource = new Object();
+							resource["name"] = "abc";
+							resource["description"] = "aaaaa";
+							params.resource = resource;
+				            options.params = params;
+				
+				            var ft = new FileTransfer();
+				            ft.upload(imageURI, "http://192.168.1.5:3000/projects/" + that.model.id + "/resources/", function(){
+				            	alert("Uploaded successfully");
+				            }, function(){
+				            	alert("Uploaded failed");
+				            }, options);
 			}, function() {
-				that.uploadFail();
+				alert("failed to upload photo");
 			}, { quality: 50, 
 	        destinationType: destinationType.FILE_URI,
 	        sourceType: pictureSource.PHOTOLIBRARY });
@@ -49,26 +71,15 @@ CmsRails.Views.ProjectView = Backbone.View.extend({
 		"vclick #capturePhoto": function(e) {
 			var that = this;
 			navigator.camera.getPicture(function() {
-				that.cameraSuccess()
+//				alert("Photo taken successfully");
 			}, function() {
-				that.uploadFail();
+				alert("failed to capture photo");
 			}, { 
 				quality: 50, 
 				destinationType : Camera.DestinationType.DATA_URL 
 			});
 		},
 
-		uploadFail: function() {
-			alert("fail");
-		},
-
-		uploadSuccess: function() {
-			alert("win");
-		},
-
-		cameraSuccess: function() {
-			alert("camera win");	
-		}
 	}
 });
 
