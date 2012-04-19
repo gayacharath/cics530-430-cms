@@ -13,9 +13,9 @@ window.CmsRails = {
   	}
  };
 		
-document.addEventListener("deviceready",function() {
-	window.pictureSource=navigator.camera.PictureSourceType;
-	window.destinationType=navigator.camera.DestinationType;
+ document.addEventListener("deviceready",function() {
+        window.pictureSource=navigator.camera.PictureSourceType;
+        window.destinationType=navigator.camera.DestinationType;
 },false);
 
 		
