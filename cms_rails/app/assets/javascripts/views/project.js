@@ -52,7 +52,8 @@ CmsRails.Views.ProjectView = Backbone.View.extend({
 							options.params = {"resource":params};
 				
 				            var ft = new FileTransfer();
-				            ft.upload(imageURI, "http://ec2-23-21-28-8.compute-1.amazonaws.com/mobile/projects/" + that.model.id + "/resources/", function(){
+				            //ft.upload(imageURI, "http://ec2-23-21-28-8.compute-1.amazonaws.com/mobile/projects/" + that.model.id + "/resources/", function(){
+				            	ft.upload(imageURI, "http://192.168.43.62:3000/mobile/projects/" + that.model.id + "/resources/", function(){
 				            	alert("Uploaded successfully");
 				            }, function(){
 				            	alert("Uploaded failed");
