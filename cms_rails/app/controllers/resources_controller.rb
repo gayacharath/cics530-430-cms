@@ -37,7 +37,7 @@ class ResourcesController < ApplicationController
     if @resource.update_attributes(params[:resource])
       @resource.version += 1
       @resource.save!
-      redirect_to @project, :notice  => "Successfully updated resource."
+      redirect_to @resource.project, :notice  => "Successfully updated resource."
     else
       render :action => 'edit'
     end
