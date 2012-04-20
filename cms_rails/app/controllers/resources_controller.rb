@@ -18,7 +18,12 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    @resource = @project.resources.build(params[:resource])
+    #unless fname.kind_of? String
+    if params[:resource]
+      @resource = @project.resources.build(params[:resource])
+    else
+      @resource = @project.resources.build(params)
+    end
     @resource.version = 1
     @resource.user = current_user
     if @resource.save

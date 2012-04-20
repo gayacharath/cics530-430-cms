@@ -14,10 +14,6 @@ CmsRails.Views.ProjectLi = Backbone.View.extend({
 });
 
 
-
-
-
-
 CmsRails.Views.ProjectView = Backbone.View.extend({
 
 	template: JST['projects/show'],
@@ -40,20 +36,22 @@ CmsRails.Views.ProjectView = Backbone.View.extend({
 			
 			navigator.camera.getPicture(function(imageURI) {
 							var options = new FileUploadOptions();
+							var desc = "Uploaded from project box mobile app on " + new Date().toDateString() + " at " + new Date().toLocaleTimeString();
 				            options.fileKey="file";
 				            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
 				            options.mimeType="image/jpeg";
 				
-				            var params = new Object();
-				            params.name = options.fileName;
-				            params.description = "new description";
-							params.commit = "Create Resource";
-							params.project_id = that.model.id;
-							options.params = {"resource":params};
+				            options.params = {
+									name: "Mobile Upload " + options.fileName,
+					            	description: desc,
+									commit: "Create Resource",
+									project_id: that.model.id,
+				           		};
+				            
 				
 				            var ft = new FileTransfer();
 				            //ft.upload(imageURI, "http://ec2-23-21-28-8.compute-1.amazonaws.com/mobile/projects/" + that.model.id + "/resources/", function(){
-				            	ft.upload(imageURI, "http://192.168.43.62:3000/mobile/projects/" + that.model.id + "/resources/", function(){
+				            ft.upload(imageURI, "http://192.168.43.62:3000/projects/" + that.model.id + "/resources/", function(){
 				            	alert("Uploaded successfully");
 				            }, function(){
 				            	alert("Uploaded failed");

@@ -20,6 +20,7 @@ window.CmsRails = {
 
 		
 $(function() {
+//  $(document).bind('pageinit', function(){
 	CmsRails.init();
 });
   
