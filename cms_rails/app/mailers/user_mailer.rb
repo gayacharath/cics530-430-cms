@@ -6,9 +6,9 @@ class UserMailer < ActionMailer::Base
   	mail :to => user.email, :subject => "ProjectBox Password Reset Request"
   end
 
-  def   invitation(user, project)
+  def   invitation(user)
   	@user = user
-	@project = project
-  	mail :to => user.email, :subject => "Request to join the project"
+	@project = Project.first
+  	mail :to => user.email, :subject => "Request to contribute the project"
   end
 end
