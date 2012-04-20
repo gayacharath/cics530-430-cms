@@ -19,7 +19,7 @@ CmsRails.Models.Project = Backbone.Model.extend({
         params.name = options.fileName;
         params.description = "description";
 
-        options.params = params;
+        options.params = {"resource": params};
 
         var ft = new FileTransfer();
         //ft.upload(imageURI, "http://192.168.1.5:3000/projects/1/resources/new.rabl", onPhotoUploadSuccess, onFail, options);

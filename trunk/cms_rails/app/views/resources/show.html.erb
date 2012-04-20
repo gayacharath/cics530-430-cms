@@ -4,7 +4,7 @@
   <div class='row'>
     <% if @resource.image_attached? %>
       <div class='span2'>
-        <img src='<%= @resource.file.url %>' />
+        <img src='<%= @resource.file.url %>' width='150px' height="150px" />
       </div>
     <% end %>
     <div class="span5">
