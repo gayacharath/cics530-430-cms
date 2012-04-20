@@ -37,7 +37,30 @@
       <div class="alert alert-block fade in announcement_border">
         <p><%= pa.content %></p>
       </div>
-      <h7>Created: <%= pa.created_at%></h7>
+              <%if current_user == pa.user or current_user == @project.owner %>
+      <table>
+        <tbody>
+        <tr>
+          <td>
+            <h7>Created: <%= pa.created_at%>&nbsp;&nbsp;&nbsp;&nbsp;</h7>
+
+          </td>
+          <td>
+            <%= link_to "Edit", edit_announcement_path(pa), :class => "btn btn-mini btn-create" %>
+          </td>
+          <td>
+            <%= link_to 'Delete', announcement_path(pa),
+                                 :method => :delete,
+                                 :confirm => 'Are you sure?',
+                                 :class => 'btn btn-mini btn-danger' %>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+
+            <%end%>
+  <hr>
 </div>
 <%end%>
 
@@ -191,7 +214,7 @@
           <% if pr.file.url %>
           <%= link_to "Get", pr.file.url, :class => "btn btn-mini btn-success" %>
           <% else %>
-                Path not found
+               error: file not found
               <%end%>
 
           <%if pr.user_id == current_user.id || current_user == @project.owner%>
