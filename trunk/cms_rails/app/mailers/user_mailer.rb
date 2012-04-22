@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "noreply@projectbox.com"
 
   def   password_reset(user)
   	@user = user
@@ -8,7 +8,8 @@ class UserMailer < ActionMailer::Base
 
   def   invitation(user)
   	@user = user
-	@project = Project.first
+	  @project = Project.first
   	mail :to => user.email, :subject => "Request to contribute the project"
   end
+
 end
