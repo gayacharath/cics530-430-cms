@@ -30,7 +30,8 @@ CmsRails::Application.routes.draw do
 
   match 'mobile' => "mobile#index"
   match 'current_projects' => "my_projects#index"
-  
+
+  match 'help' => "sessions#help"
 
   root :to => 'sessions#new'
 
