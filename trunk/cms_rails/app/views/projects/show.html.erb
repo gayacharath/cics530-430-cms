@@ -129,7 +129,7 @@
               <td><%= pc.email %></td>
 
             <%if current_user == @project.owner %>
-                  <td><%= link_to "Remove", "#", :class => "btn btn-mini btn-danger" %></td>
+                  <td><%= link_to "Remove", project_contribution_path(@project, pc), :class => "btn btn-mini btn-danger", :confirm => 'Are you sure?', :method => :delete %></td>
             <%end%>
 
 

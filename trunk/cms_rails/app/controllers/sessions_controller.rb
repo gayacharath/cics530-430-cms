@@ -17,7 +17,9 @@ class SessionsController < ApplicationController
       respond_to do |format|
         format.html do 
           if session[:cached_path]
-            redirect_to session[:cached_path], :notice => "Logged in!" 
+            path = session[:cached_path]
+            session[:cached_path] = nil
+            redirect_to path, :notice => "Logged in!" 
           else
             redirect_to home_path, :notice => "Logged in!" 
           end
