@@ -3,7 +3,13 @@
     <legend><h3>&nbsp;<%= controller.action_name.capitalize %> Announcement</h3></legend>
 
     <%= f.input :topic %>
-    <div class="control-group text required"><label class="text required control-label" for="announcement_content"><abbr title="required">*</abbr> Content</label><div class="controls"><textarea class="text required" cols="40" id="announcement_content" name="announcement[content]" rows="10"></textarea></div></div>
+    <div class="control-group text required">
+      <label class="text required control-label" for="announcement_content">
+        <abbr title="required">*</abbr> Content</label>
+      <div class="controls">
+        <textarea class="text required" cols="40" id="announcement_content" name="announcement[content]" rows="10"></textarea>
+      </div>
+    </div>
     <%= f.input :kind%>
 
     <div class="form-actions">
