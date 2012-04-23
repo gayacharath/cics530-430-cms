@@ -130,7 +130,7 @@
                 	<table>
                 		<tr>
                 			<th>Contributors:</th>
-                          <%if mp.users.count == 0 %>
+                          <%if mp.users.count  == 0 %>
                            <td><span class="badge badge-warning"><%= mp.users.count %></span> &nbsp;&nbsp;<b>Invite some!</b></td>
                               <%else%>
                             <td><span class="badge badge-success"><%= mp.users.count %></span></td>
