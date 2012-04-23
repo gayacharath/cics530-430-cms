@@ -49,10 +49,6 @@
     UserMailer.password_reset(self).deliver
   end
 
-  def send_invitation
-    UserMailer.invitation(self).deliver
-  end
-
   def password_reset_expired?
     self.password_reset_expired_at && self.password_reset_expired_at < Time.now
   end
