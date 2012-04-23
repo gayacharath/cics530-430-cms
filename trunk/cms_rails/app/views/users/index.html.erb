@@ -27,10 +27,7 @@
                 <td><%= user.full_name %></td>
         <%end%>
         <td><%= user.created_at.to_s(:slash_date) %></td>
-        <td>
-
-          <%= link_to ' Invite ',  invitation_path(:id => user.id), :class => 'btn btn-success btn-mini' %>
-        </td>
+        <td></td>
 
       </tr>
     <% end %>

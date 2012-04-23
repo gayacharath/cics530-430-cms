@@ -15,7 +15,13 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       respond_to do |format|
-        format.html { redirect_to home_path, :notice => "Logged in!" }
+        format.html do 
+          if session[:cached_path]
+            redirect_to session[:cached_path], :notice => "Logged in!" 
+          else
+            redirect_to home_path, :notice => "Logged in!" 
+          end
+        end
         format.json { render :json => user.to_json }
       end
     else

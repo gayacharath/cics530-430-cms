@@ -2,14 +2,37 @@ class InvitationsController < ApplicationController
 
 	respond_to :html, :xml, :json
 
-	def show
-		user = User.find(params[:id])
-		if user
-		   user.send_invitation 
-		   redirect_to user_path(:id => current_user.id), :notice => "An email has been sent to #{user.name}"
+	before_filter :is_logged_in
+	before_filter :load_project
+
+
+	def index
+		if @project.users.include? current_user || @project.owner == current_user
+			redirect_to @project, :alert => "You already contribute to this project"
 		else
-		   redirect_to user_path(:id => current_user.id), :alert => "You are not registered. Click sign up to register"
+			@project.users << current_user
+			redirect_to @project, :notice => "You are now a contributor to this project"
 		end
-        end
+	end
+
+    def new
+    	@invitation = Invitation.new
+    end
+
+    def create
+    	@invitation = Invitation.new params[:invitation]
+    	if @invitation.valid?
+    		@invitation.send_invitation @project, current_user
+    		redirect_to @project, :notice => "Your invitation has been sent"
+    	else
+    		render :new
+    	end
+    end
+
+    private
+
+    def load_project
+    	@project = Project.find(params[:project_id])
+    end
 	
 end

@@ -8,6 +8,7 @@ CmsRails::Application.routes.draw do
   resources :projects do
     resources :resources, :shallow => true
     resources :announcements, :shallow => true
+    resources :invitations
   end
 
 
@@ -16,7 +17,6 @@ CmsRails::Application.routes.draw do
   
   resources :users
   resources :password_resets
-  resources :invitations
   
   match 'login' => 'sessions#new', :as => :login
   match 'logout' => 'sessions#destroy', :as => :logout
