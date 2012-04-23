@@ -40,7 +40,9 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       if session[:cached_path]
-        redirect_to session[:cached_path], :notice => "Account created you are now logged in!" 
+        path = session[:cached_path]
+        session[:cached_path] = nil
+        redirect_to path, :notice => "Account created you are now logged in!" 
       else
         redirect_to @user, :notice => "Successfully created user."
       end

@@ -9,6 +9,7 @@ CmsRails::Application.routes.draw do
     resources :resources, :shallow => true
     resources :announcements, :shallow => true
     resources :invitations
+    resources :contributions, :only => :destroy
   end
 
 
